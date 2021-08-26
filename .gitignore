@@ -1,0 +1,12 @@
+# Code Directories to Ignore on Push
+__pycache__/
+
+# Any Environment Files Built
+.env/*
+./.env/*
+
+env/*
+./env/*
+
+# Mac 
+.DS_Store
