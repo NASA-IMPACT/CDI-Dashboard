@@ -36,7 +36,8 @@ def warnings():
 @app.route("/warnings/<instance>")
 def warnings_instance(instance):
 	return render_template(
-		"/warnings/WARNINGS_INSTANCE.html"
+		"/warnings/WARNINGS_INSTANCE.html",
+		instance=instance
 		)
 
 
@@ -92,7 +93,8 @@ def qa_updates_download_all():
 @app.route("/cdi-masterlist/qa-updates/download-<instance>")
 def qa_updates_download_instance(instance):
 	return render_template(
-		"/cdi_masterlist/qa_updates/QA_UPDATES_DOWNLOAD_INSTANCE.html"
+		"/cdi_masterlist/qa_updates/QA_UPDATES_DOWNLOAD_INSTANCE.html",
+		instance=instance
 		)
 
 
