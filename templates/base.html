@@ -13,7 +13,7 @@
 
 <body>
 
-    {% block content %}
+
 
     <!--Creating Responsive Menu Bar for Block Content-->
     <navbar class="navbar">
@@ -29,7 +29,7 @@
         <!--Creating Collapsible Menu Icon-->
         <input class="menu-button" type="checkbox" id="menu-button" />
         <label class="burger-menu" for="menu-button"><span class="lines"></span></label>
-       
+
         <!--Creating and Linking Menu Items-->
         <ul class="menu-items">
             <li><a href="/">Home</a></li>
@@ -39,15 +39,37 @@
             <li><a href="/cdi-masterlist">Masterlist</a></li>
             <li><a href="/retag">Retag</a></li>
             <li><a href="/warnings/<instance>">
-                <button type="button" class="alert-button">
-                    <span class="material-icons">priority_high</span>
-                </button>
+                    <button type="button" class="alert-button">
+                        <span class="material-icons">priority_high</span>
+                    </button>
                 </a>
             </li>
         </ul>
     </navbar>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
-    {% endblock %}
 
+    {% block content %}{% endblock %}
+
+
+
+    <div class="footer">
+        <a class="footer_logo" href="https://www.nasa.gov/" target="_blank">
+            <img style="float:right;height:100px" src="{{ url_for('static', filename='images/NASA_logo.png' )}}"
+                alt="NASA Logo"></img>
+        </a>
+        <a class="footer_logo" href="https://impact.earthdata.nasa.gov/" target="_blank">
+            <img style="float:right;height:100px" src="{{ url_for('static', filename='images/IMPACT_logo.png' )}}"
+                alt="Impact Logo"></img>
+        </a>
+
+
+    </div>
 </body>
+
 </html>
