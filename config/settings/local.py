@@ -52,3 +52,10 @@ INSTALLED_APPS += ["django_extensions"]  # noqa F405
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+import os.path
+PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
+MEDIA_ROOT = os.path.join(PROJECT_PATH, 'dashboard/')
+TEMPLATES_DIRS = [
+    os.path.join(PROJECT_PATH, 'templates/'),
+]
