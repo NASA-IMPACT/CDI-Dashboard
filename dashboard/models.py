@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 class CDI_dataset(models.Model):
-    date_id = model.UUIDField(primary_key=True)
+    date_id = models.UUIDField(primary_key=True)
     cdi_id = models.IntegerField()
     name = models.CharField(max_length=500)
     title = models.CharField(max_length=500)
@@ -15,7 +15,7 @@ class CDI_dataset(models.Model):
     geoplatform_id = models.CharField(max_length=50, null=True)
     is_active = models.BooleanField(default=True)
     datagov_ID = models.UUIDField(null=True)
-
+'''
 class retag(CDI_dataset):
     pass
 
@@ -57,7 +57,7 @@ class warnings_summary(models.model):
     broken_urls =
     lost_climate_tag = 
     not_in_masterlist =  
-
+'''
 
 
 
