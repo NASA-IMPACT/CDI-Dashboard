@@ -6,7 +6,7 @@ from .models import CDI_dataset, retag,broken_api,updates_masterlist,original_ma
 class RetagAdmin(admin.ModelAdmin):
     pass
 
-admin.site.register(CDI_dataset, RetagAdmin)
+#admin.site.register(CDI_dataset, RetagAdmin)
 admin.site.register(retag, RetagAdmin)
 admin.site.register(broken_api, RetagAdmin)
 admin.site.register(updates_masterlist, RetagAdmin)

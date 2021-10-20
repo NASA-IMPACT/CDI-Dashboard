@@ -44,11 +44,11 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('NAME'),
-        'USER': env('USER'),
-        'PASSWORD': env('PASSWORD'),
-        'HOST': env('HOST'),
-        'PORT': env('PORT'),
+        'NAME': 'cap',
+        'USER': 'postgres',
+        'PASSWORD': 'Pa55w0rd',
+        'HOST': 'localhost',
+        'PORT': '5432',
     },
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
@@ -78,6 +78,7 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "django_crontab"
 ]
 
 LOCAL_APPS = [
@@ -278,3 +279,8 @@ SOCIALACCOUNT_ADAPTER = "cap.users.adapters.SocialAccountAdapter"
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+# CRONTABS
+CRONJOBS = [
+    #('* 9 * * *', 'dashboard.cap.run_cap')
+]
