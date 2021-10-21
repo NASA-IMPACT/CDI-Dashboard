@@ -1,4 +1,5 @@
-from CAP import CAP
+from cap.CAP import CAP
+from .models import *
 
 run_cap():
 	
@@ -7,3 +8,9 @@ run_cap():
 	# and put output in the models/database
 
 	#
+
+
+
+
+
+
