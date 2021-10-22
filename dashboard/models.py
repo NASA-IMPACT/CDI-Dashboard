@@ -24,12 +24,12 @@ class CAP_Instance(models.Model):
     not_in_masterlist = models.IntegerField()
     total_warnings = models.IntegerField()
 
-class Broken_API_Datasets(models.Model):
+class Broken_API(models.Model):
     broken_id = models.AutoField(primary_key=True)
     cap_id = models.IntegerField()
     datagov_ID = models.UUIDField()
 
-class Retag_Datasets(models.Model):
+class Retag(models.Model):
     retag_id = models.AutoField(primary_key=True)
     cap_id = models.IntegerField()
     datagov_ID = models.UUIDField()
