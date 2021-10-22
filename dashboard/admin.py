@@ -1,18 +1,15 @@
 from django.contrib import admin
 
-from .models import CDI_dataset, retag,broken_api,updates_masterlist,original_masterlist, qa_updates,not_in_masterlist,cdi_metrics,warnings_summary
+from .models import Masterlist, CAPInstance, BrokenAPI, Retag, QAUpdates, NotInMasterlist
 
 # Register your models here.
-class RetagAdmin(admin.ModelAdmin):
+class CAPAdmin(admin.ModelAdmin):
     pass
 
-#admin.site.register(CDI_dataset, RetagAdmin)
-admin.site.register(retag, RetagAdmin)
-admin.site.register(broken_api, RetagAdmin)
-admin.site.register(updates_masterlist, RetagAdmin)
-admin.site.register(original_masterlist, RetagAdmin)
-admin.site.register(qa_updates, RetagAdmin)
-
-admin.site.register(not_in_masterlist, RetagAdmin)
-admin.site.register(cdi_metrics, RetagAdmin)
-admin.site.register(warnings_summary, RetagAdmin)
+#admin.site.register(Model, CAPAdmin)
+admin.site.register(Masterlist, CAPAdmin)
+admin.site.register(CAPInstance, CAPAdmin)
+admin.site.register(BrokenAPI, CAPAdmin)
+admin.site.register(Retag, CAPAdmin)
+admin.site.register(QAUpdates, CAPAdmin)
+admin.site.register(NotInMasterlist, CAPAdmin)

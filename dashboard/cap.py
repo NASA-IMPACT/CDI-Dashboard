@@ -1,10 +1,15 @@
-from cap_package.CAP import CAP
-from .models import *
+from CAP import CAP
+
+if __name__ == '__main__':
+    from models import Masterlist, CAPInstance, BrokenAPI, Retag, QAUpdates, NotInMasterlist
+else:
+    from .models import Masterlist, CAPInstance, BrokenAPI, Retag, QAUpdates, NotInMasterlist 
 
 def run_cap():
 	
 	# Run Cap Program #
-
+    print('hello')
+    '''
 	masterlist = ""
 
 	cap = CAP(masterlist)
@@ -34,9 +39,9 @@ def run_cap():
 		#add a record to the retag DB including the data.gov_id and the CAP_id
 
 
+    '''
 
-
-
+    
 
 
 
