@@ -284,3 +284,5 @@ SOCIALACCOUNT_ADAPTER = "cap.users.adapters.SocialAccountAdapter"
 CRONJOBS = [
     #('* 9 * * *', 'dashboard.cap.run_cap')
 ]
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'

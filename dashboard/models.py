@@ -5,13 +5,13 @@ class Masterlist(models.Model):
     name = models.CharField(max_length=500)
     title = models.CharField(max_length=500)
     organization = models.CharField(max_length=50)
-    catalog_url = models.URLField()
-    api_url = models.URLField()
-    cdi_themes = models.CharField(max_length=200, null=True)
+    catalog_url = models.URLField(max_length=500)
+    api_url = models.URLField(max_length=500)
+    cdi_themes = models.CharField(max_length=500, null=True)
     metadata_type = models.CharField(max_length=50, null=True, blank=True)
     geoplatform_id = models.CharField(max_length=50, null=True)
     status = models.CharField(max_length=20)
-    datagov_ID = models.UUIDField(unique=True)
+    datagov_ID = models.CharField(max_length=50, unique=True)
 
 class CAPInstance(models.Model):
     cap_id = models.AutoField(primary_key=True)
@@ -37,19 +37,19 @@ class QAUpdates(models.Model):
     qa_id = models.AutoField(primary_key=True)
     cap_id = models.ForeignKey('CAPInstance', db_column='cap_id', on_delete=models.CASCADE)
     datagov_ID = models.ForeignKey('Masterlist', to_field='datagov_ID', db_column='datagov_ID', on_delete=models.CASCADE)
-    name = models.CharField(max_length=500, null=True, blank=True)
-    title =models.CharField(max_length=500, null=True, blank=True)
-    organization = models.CharField(max_length=50, null=True, blank=True)
-    catalog_url = models.URLField(null=True, blank=True)
-    metadata_type = models.CharField(max_length=50, null=True, blank=True)
+    name = models.CharField(max_length=1000, null=True, blank=True)
+    title =models.CharField(max_length=1000, null=True, blank=True)
+    organization = models.CharField(max_length=100, null=True, blank=True)
+    catalog_url = models.CharField(max_length=1000, null=True, blank=True)
+    metadata_type = models.CharField(max_length=100, null=True, blank=True)
 
 class NotInMasterlist(models.Model):
     nml_id = models.AutoField(primary_key=True)
     cap_id = models.ForeignKey('CAPInstance', db_column='cap_id', on_delete=models.CASCADE)
     title = models.CharField(max_length=500)
     name = models.CharField(max_length=500)
-    api_url = models.URLField()
-    catalog_url = models.URLField()
+    api_url = models.URLField(max_length=500)
+    catalog_url = models.URLField(max_length=500)
 
 '''
 # Create your models here.
