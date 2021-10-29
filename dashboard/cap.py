@@ -10,7 +10,7 @@ def run_cap():
 
     # Get CDI Masterlist from DB
     masterlist = Masterlist.objects.values()
-    masterlist_json = [entry for entry in masterlist] # Converts to list rather then QuerySet
+    masterlist_json = list(masterlist) # Converts to list rather then QuerySet
 
     ## Run CDI Analysis Platform ##
     cap = CAP(masterlist_json)
@@ -71,8 +71,7 @@ def add_Retags(all_metrics, cap_instance):
     for retag in retag_json:
 
         dg_id = retag["datagov_ID"]
-        masterlist_queryset = Masterlist.objects.filter(datagov_ID=dg_id)
-        masterlist_dataset = masterlist_queryset[0]
+        masterlist_dataset = Masterlist.objects.get(datagov_ID=dg_id)
 
         retag_entry = Retag(cap_id=cap_instance, datagov_ID=masterlist_dataset)
 
@@ -90,8 +89,7 @@ def add_BrokenAPI(all_metrics, cap_instance):
     for broken in broken_json:
 
         dg_id = broken["datagov_ID"]
-        masterlist_queryset = Masterlist.objects.filter(datagov_ID=dg_id)
-        masterlist_dataset = masterlist_queryset[0]
+        masterlist_dataset = Masterlist.objects.get(datagov_ID=dg_id)
 
         broken_entry = BrokenAPI(cap_id=cap_instance, datagov_ID=masterlist_dataset)
 
@@ -112,8 +110,7 @@ def add_QAUpdates(all_metrics, cap_instance):
     for qa in qa_updates_json:
 
         dg_id = qa["datagov_id"]
-        masterlist_queryset = Masterlist.objects.filter(datagov_ID=dg_id)
-        masterlist_dataset = masterlist_queryset[0]
+        masterlist_dataset = Masterlist.objects.get(datagov_ID=dg_id)
 
         qa_entry = QAUpdates(cap_id = cap_instance,
                             datagov_ID = masterlist_dataset,
