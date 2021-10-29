@@ -56,7 +56,7 @@ class ClimateCollection_View(View):
 
     def get(self, request):
 
-        return render(request, "CLIMATE_COLLECTION.html")
+        return render(request, "climate_collection/CLIMATE_COLLECTION.html")
 
 class Masterlist_View(View):
 

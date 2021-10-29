@@ -12,3 +12,4 @@ urlpatterns = [
     path("cdi-masterlist/download", MasterlistDownload_View.as_view(), name="masterlistdownload"),
     path("cdi-masterlist/qa-updates", QAUpdates_View.as_view(), name="qaupdates"),
 
+]
