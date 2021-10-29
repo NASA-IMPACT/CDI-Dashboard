@@ -5,9 +5,6 @@ from django.views import View
 from .models import Masterlist, CAPInstance, BrokenAPI, Retag, QAUpdates, NotInMasterlist
 
 # Create your views here.
-class BaseView(TemplateView):
-    template_name = "base.html"
-
 class Main_View(View):
 
     def get(self, request):
@@ -24,13 +21,13 @@ class Main_View(View):
         total_warnings_qs = CAPInstance.objects.values("date", "total_warnings").order_by("date").reverse()
         total_warnings = list(total_warnings_qs)
 
-        return render(request, "base.html", {'all_metrics':all_metrics, "current_metrics":current_metrics, "total_warnings":total_warnings})
+        return render(request, "HOMEPAGE.html", {'all_metrics':all_metrics, "current_metrics":current_metrics, "total_warnings":total_warnings})
 
 class Charts_View(View):
 
     def get(self, request):
 
-        return render(request, "base.html")
+        return render(request, "metrics/METRICS.html")
 
 class Warnings_View(View):
 
@@ -41,25 +38,31 @@ class Warnings_View(View):
         .order_by("date").reverse()
         all_warnings = list(all_warnings_qa)
 
-        return render(request, "base.html", {"all_warnings":all_warnings})
+        return render(request, "warnings/WARNINGS.html", {"all_warnings":all_warnings})
 
 class WarningsInstance_View(View):
 
     def get(self, request):
 
-        return render(request, "base.html")
+        return render(request, "warnings/WARNINGS_INSTANCE.html")
+      
+class Retag_View(View):
+
+    def get(self, request):
+
+        return render(request, "retag/RETAG.html")
 
 class ClimateCollection_View(View):
 
     def get(self, request):
 
-        return render(request, "base.html")
+        return render(request, "CLIMATE_COLLECTION.html")
 
 class Masterlist_View(View):
 
     def get(self, request):
 
-        return render(request, "base.html")
+        return render(request, "cdi_masterlist/CDI_MASTERLIST.html")
 
 class MasterlistDownload_View(View):
 
@@ -71,4 +74,5 @@ class QAUpdates_View(View):
 
     def get(self, request):
 
-        return render(request, "base.html")
+        return render(request, "cdi_masterlist/qa_updates/QA_UPDATES.html")
+

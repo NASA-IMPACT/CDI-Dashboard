@@ -1,4 +1,73 @@
 
-<DIV>
-    HELLO, RENDERED SUCCESSFULLY
-</DIV>
+<!--Base File for Static Content-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Referencing style.css file and icon page-->
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}<link rel="stylesheet" href="{%  static  'css/style.css'  %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+
+
+    <!--Creating Responsive Menu Bar for Block Content-->
+    <navbar class="navbar">
+        <a href="/" class="title">CDI Dashboard</a>
+
+        <!--Creating Alert Icon with link-->
+        <a href="/warnings_instance" class="alert-icon">
+            <button type="button" class="alert-button">
+                <span class="material-icons">priority_high</span>
+            </button>
+        </a>
+
+        <!--Creating Collapsible Menu Icon-->
+        <input class="menu-button" type="checkbox" id="menu-button" />
+        <label class="burger-menu" for="menu-button"><span class="lines"></span></label>
+
+        <!--Creating and Linking Menu Items-->
+        <ul class="menu-items">
+            <li><a href="/">Home</a></li>
+            <li><a href="/metrics">Metrics</a></li>
+            <li><a href="/warnings">Warnings</a></li>
+            <li><a href="/climate_collection">Climate Collection</a></li>
+            <li><a href="/cdi_masterlist">Masterlist</a></li>
+            <li><a href="/retag">Retag</a></li>
+            <li><a href="/warnings_instance">
+                    <button type="button" class="alert-button">
+                        <span class="material-icons">priority_high</span>
+                    </button>
+                </a>
+            </li>
+        </ul>
+    </navbar>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    {% block content %}{% endblock %}
+    <div class="footer">
+        <a class="footer_logo" href="https://www.nasa.gov/" target="_blank">
+            {% load static %}<img style="float:right;height:100px" src="{% static 'media/NASA_logo.png' %}"
+                alt="NASA Logo"></img>
+        </a>
+        <a class="footer_logo" href="https://impact.earthdata.nasa.gov/" target="_blank">
+            {% load static %} <img style="float:right;height:100px" src="{% static 'media/IMPACT_logo.png' %}"
+                alt="Impact Logo"></img>
+        </a>
+
+
+    </div>
+</body>
+
+</html>
