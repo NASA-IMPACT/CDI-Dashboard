@@ -1,4 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+<p>Dictionary all_metrics</p>
+
+<ul>
+{% for item in all_metrics %}
+
+	<li> {{ item }} </li>
+
+{% endfor %}
+</ul>
+
+<p>Dictionary current_metrics</p>
+
+<ul>
+{% for item in current_metrics %}
+
+	<li> {{ item }} </li>
+
+{% endfor %}
+</ul>
+
+<p>Dictionary total_warnings</p>
+
+<ul>
+{% for item in total_warnings %}
+
+	<li> {{ item }} </li>
+
+{% endfor %}
+</ul>
+
 {% endblock %}

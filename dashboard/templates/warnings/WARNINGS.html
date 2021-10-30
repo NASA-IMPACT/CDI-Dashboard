@@ -1,1 +1,16 @@
 {% extends "base.html" %}
+
+{% block title %}CDI Warnings{% endblock %}
+
+{% block content %}
+
+<p>Dictionary all_warnings</p>
+<ul>
+{% for item in all_warnings %}
+
+	<li> {{ item }} </li>
+
+{% endfor %}
+</ul>
+
+{% endblock %}
