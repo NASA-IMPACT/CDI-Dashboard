@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views import View
-
+import pandas as pd
+import json
+import plotly
+import plotly.express as px
 from .models import Masterlist, CAPInstance, BrokenAPI, Retag, QAUpdates, NotInMasterlist
 
 # Create your views here.
@@ -20,8 +23,19 @@ class Main_View(View):
         # Total Warnings
         total_warnings_qs = CAPInstance.objects.values("date", "total_warnings").order_by("date").reverse()
         total_warnings = list(total_warnings_qs)
+        
+        # Generatig Timeseries
+        timeseries_df=pd.DataFrame({})
+        for item in all_metrics:
+            dct = {k:[v] for k,v in item.items()}
+            timeseries_df=timeseries_df.append(pd.DataFrame.from_dict(dct))
+        timeseries_df.columns=['Date', "Masterlist", "Climate Collection"]
+        fig = px.line(timeseries_df, x='Date', y=timeseries_df.columns,
+              hover_data={"Date": "|%B %d, %Y"},
+              title='Timeseries')
+        graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
-        return render(request, "HOMEPAGE.html", {'all_metrics':all_metrics, "current_metrics":current_metrics, "total_warnings":total_warnings})
+        return render(request, "HOMEPAGE.html", {'all_metrics':all_metrics, "current_metrics":current_metrics, "total_warnings":total_warnings, "graphJSON":graphJSON})
 
 class Charts_View(View):
 

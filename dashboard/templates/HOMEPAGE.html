@@ -2,6 +2,78 @@
 
 {% block content %}
 
+<center>
+<div class="container">
+<div class="section1"><div class="information"></div></div>
+<div class="section2"><div class="information"></div></div>
+<div class="section3"><div class="information"></div></div>
+<div class="section4"><div class="information" style="padding:10px;height:95%"><div  class= 'chartstyle' id='chart'></div></div></div>
+</div>
+</center>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br><br>
+
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+<script type='text/javascript'>
+  var graphs = {{graphJSON | safe}};
+  Plotly.plot('chart',graphs,{});
+</script>
+
+
+
 <p>Dictionary all_metrics</p>
 
 <ul>

@@ -15,8 +15,60 @@ body {
   
   /* Styling the Menu Bar and Collapsible Menu (i.e. navbar) */
   
+.container {
+	
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	
+
+}
+.section1 {
+	width:650px;
+	height:400px;
+	
+	padding:20px
+
+}
+.section2 {
+	width:650px;
+	height:400px;
+	
+	padding:20px
+
+}
+.section3 {
+	width:650px;
+	height:400px;
+	
+	padding:20px
+
+}
+.section4 {
+	width:650px;
+	height:500px;
+	
+	padding:20px
+
+}
+
+.information {
+	width:100%;
+	height:100%;
+	border:2px solid black;
+	border-radius: 30px
+
+}
+.chartstyle {
+
+  width:100%;
+	height:100%;
+
+	
+}
+
   .navbar {
-    background-color: cornflowerblue;
+    background-color: #002554;
     position: fixed;
     width: 100%;
     height: 75px;
@@ -27,7 +79,7 @@ body {
     padding: 0;
     list-style: none;
     overflow: hidden;
-    background-color: cornflowerblue;
+    background-color: #002554;
   }
   
   .navbar li a {
@@ -181,4 +233,57 @@ body {
     .navbar .alert-icon {
       display: none;
     }
+    
+.container {
+	
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	
+
+}
+.section1 {
+	width:50%;
+	height:400px;
+	
+	padding:20px
+
+}
+.section2 {
+	width:40%;
+	height:400px;
+
+	padding:20px
+
+}
+.section3 {
+	width:30%;
+	height:400px;
+	
+	padding:20px
+
+}
+.section4 {
+	width:60%;
+	height:400px;
+	
+	padding:20px
+
+}
+
+.information {
+	width:100%;
+	height:100%;
+	border:2px solid black;
+	border-radius: 30px
+
+}
+.chartstyle {
+
+	width:100%;
+	height:100%;
+
+	
+}
   }
+  
