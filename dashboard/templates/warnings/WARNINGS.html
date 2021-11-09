@@ -4,13 +4,33 @@
 
 {% block content %}
 
-<p>Dictionary all_warnings</p>
-<ul>
-{% for item in all_warnings %}
+{% load static %}<link rel="stylesheet" href="{%  static  'css/warnings_style.css'  %}">
 
-	<li> {{ item }} </li>
-
-{% endfor %}
-</ul>
-
+<body>
+  <div class="tableFixHead">
+    <table>
+      <caption>Climate Collection Warnings</caption>
+        <thead>
+          <tr>
+            <th>Date/Time</th>
+            <th>Broken API URLs</th>
+            <th>Lost Climate Tags</th>
+            <th>Not in Masterlist</th>
+            <th>Total Warnings</th>
+          </tr>
+      </thead>
+    <tbody>
+      {% for item in all_warnings %}
+      <tr>
+      <td>{{ item.date }} </td>
+      <td>{{ item.broken_urls }}</td>
+      <td>{{ item.lost_climate_tag }}</td>
+      <td>{{ item.not_in_masterlist }}</td>
+      <td>{{ item.total_warnings }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    </table>
+  </div>
+</body>
 {% endblock %}

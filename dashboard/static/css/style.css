@@ -16,7 +16,7 @@ body {
   /* Styling the Menu Bar and Collapsible Menu (i.e. navbar) */
   
   .navbar {
-    background-color: cornflowerblue;
+    background-color: midnightblue;
     position: fixed;
     width: 100%;
     height: 75px;
@@ -27,7 +27,7 @@ body {
     padding: 0;
     list-style: none;
     overflow: hidden;
-    background-color: cornflowerblue;
+    background-color: midnightblue;
   }
   
   .navbar li a {
