@@ -23,7 +23,9 @@ class Main_View(View):
         total_warnings_qs = CAPInstance.objects.values("date", "total_warnings").order_by("date").reverse()
         total_warnings = list(total_warnings_qs)
 
-        return render(request, "HOMEPAGE.html", {'all_metrics':all_metrics, "current_metrics":current_metrics, "total_warnings":total_warnings})
+        context = {'all_metrics':all_metrics, "current_metrics":current_metrics, "total_warnings":total_warnings}
+
+        return render(request, "HOMEPAGE.html", context)
 
 class Charts_View(View):
 
@@ -40,7 +42,9 @@ class Warnings_View(View):
         .order_by("date").reverse()
         all_warnings = list(all_warnings_qs)
 
-        return render(request, "warnings/WARNINGS.html", {"all_warnings":all_warnings})
+        context = {"all_warnings":all_warnings}
+
+        return render(request, "warnings/WARNINGS.html", context)
 
 class WarningsInstance_View(View):
 
@@ -52,7 +56,37 @@ class Retag_View(View):
 
     def get(self, request):
 
-        return render(request, "retag/RETAG.html")
+        # Most Recent Cap Instance
+        capinstance_qs = CAPInstance.objects.values().order_by("date").reverse()[:1]
+        capinstance = list(capinstance_qs)[0] # Gets Dictionary of Most Recent Cap Instance
+        date = capinstance['date']
+        cap_id = capinstance['cap_id']
+
+
+        # Get Retag Datasets from instance ID
+        retag_qs = Retag.objects.filter(cap_id=cap_id)
+
+        # Get Masterlist Attributes
+        retag_datasets = []
+
+        for retag in retag_qs:
+            masterlist_obj = retag.datagov_ID
+
+            masterlist_dict = {
+                                'title': masterlist_obj.title,
+                                'catalog_url': masterlist_obj.catalog_url,
+                                'organization': masterlist_obj.organization,
+                                'cdi_themes': masterlist_obj.cdi_themes,
+                                'metadata_type' : masterlist_obj.metadata_type
+            }
+
+            retag_datasets.append(masterlist_dict)
+
+
+
+        context = {'date':date, 'retaglist':retag_datasets}
+
+        return render(request, "retag/RETAG.html", context)
 
 class ClimateCollection_View(View):
 

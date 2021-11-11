@@ -1,1 +1,19 @@
 {% extends "base.html" %}
+
+{% block content %}
+
+<body>
+
+	<p>Retag Datasets from {{ date }}</p>
+
+	<ul>
+	{% for retag in retaglist %}
+
+		<li>{{ retag }}</li>
+
+	{% endfor %}
+	</ul>
+
+</body>
+
+{% endblock %}
