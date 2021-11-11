@@ -1,11 +1,12 @@
+import json
+import pandas as pd
+import plotly
+import plotly.express as px
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views import View
-import pandas as pd
-import json
-import plotly
-import plotly.express as px
 from .models import Masterlist, CAPInstance, BrokenAPI, Retag, QAUpdates, NotInMasterlist
+
 
 # Create your views here.
 class Main_View(View):
