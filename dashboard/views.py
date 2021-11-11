@@ -4,6 +4,8 @@ from django.views import View
 
 from .models import Masterlist, CAPInstance, BrokenAPI, Retag, QAUpdates, NotInMasterlist
 
+from .filters import MasterlistFilter
+
 # Create your views here.
 class Main_View(View):
 
@@ -34,9 +36,9 @@ class Warnings_View(View):
     def get(self, request):
 
         # All Warnings
-        all_warnings_qa = CAPInstance.objects.values("date", "broken_urls", "lost_climate_tag","not_in_masterlist", "total_warnings")\
+        all_warnings_qs = CAPInstance.objects.values("date", "broken_urls", "lost_climate_tag","not_in_masterlist", "total_warnings")\
         .order_by("date").reverse()
-        all_warnings = list(all_warnings_qa)
+        all_warnings = list(all_warnings_qs)
 
         return render(request, "warnings/WARNINGS.html", {"all_warnings":all_warnings})
 
@@ -62,7 +64,12 @@ class Masterlist_View(View):
 
     def get(self, request):
 
-        return render(request, "cdi_masterlist/CDI_MASTERLIST.html")
+        masterlist_qs = Masterlist.objects.values()
+
+        ml_filter = MasterlistFilter(request.GET, queryset=masterlist_qs)
+        masterlist = list(ml_filter.qs)
+
+        return render(request, "cdi_masterlist/CDI_MASTERLIST.html", {'masterlist':masterlist, 'ml_filter':ml_filter})
 
 class MasterlistDownload_View(View):
 

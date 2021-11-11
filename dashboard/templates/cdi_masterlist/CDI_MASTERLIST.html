@@ -1,1 +1,26 @@
 {% extends "base.html" %}
+
+{% block content %}
+
+<body>
+	<form method="get">
+
+		{{ml_filter.form}}
+
+		<button type="submit">Filter</button>
+
+	</form>
+
+	<p>CDI Masterlist</p>
+
+	<ul>
+	{% for item in masterlist %}
+
+		<li><a href="{{ item.catalog_url }}">{{ item.title }} ---- {{ item.cdi_themes }}</a></li>
+
+	{% endfor %}
+	</ul>
+
+</body>
+
+{% endblock %}

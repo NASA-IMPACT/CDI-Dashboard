@@ -1,5 +1,16 @@
 from django.db import models
 
+status_choices = (
+    ('Active', 'Active'), 
+    ('Not Active','Not Active'), 
+    ('Retired','Retired')
+)
+
+metadata_type_choices = (
+    ('No metadata type', 'No Metadata Type'), 
+    ('geospatial','Geospatial')
+)
+
 class Masterlist(models.Model):
     cdi_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=500)
@@ -8,9 +19,9 @@ class Masterlist(models.Model):
     catalog_url = models.URLField(max_length=500)
     api_url = models.URLField(max_length=500)
     cdi_themes = models.CharField(max_length=500, null=True)
-    metadata_type = models.CharField(max_length=50, null=True, blank=True)
+    metadata_type = models.CharField(max_length=50, null=True, blank=True, choices=metadata_type_choices, default='No metadata type')
     geoplatform_id = models.CharField(max_length=50, null=True)
-    status = models.CharField(max_length=20)
+    status = models.CharField(max_length=20, choices=status_choices, default='Active')
     datagov_ID = models.CharField(max_length=50, unique=True)
 
 class CAPInstance(models.Model):
