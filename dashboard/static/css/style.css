@@ -8,7 +8,7 @@ body {
   }
   
   a {
-    color:black;
+    color:white;
     text-decoration: none;
   }
   
@@ -199,6 +199,15 @@ body {
   
   .alert-button:active {
     background: #cccccc;
+  }
+
+   /* Styling the footer */
+   .footer{
+    position:fixed;
+    float:right;
+    bottom:0;
+    width: 100%; 
+    background-color:#eee;
   }
   
   /* Styling for different window sizes */

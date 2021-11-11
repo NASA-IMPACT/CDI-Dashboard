@@ -10,15 +10,12 @@
     <title>{% block title %}{% endblock %}</title>
     {% load static %}<link rel="stylesheet" href="{%  static  'css/style.css'  %}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
 
-
-
     <!--Creating Responsive Menu Bar for Block Content-->
-    <navbar class="navbar" style="z-index: 1">
+    <navbar class="navbar">
         <a href="/" class="title">CDI Dashboard</a>
 
         <!--Creating Alert Icon with link-->
@@ -57,7 +54,7 @@
 
 
     {% block content %}{% endblock %}
-    <div class="footer" style="position:fixed;float:right;bottom:0;width: 100%; background-color: #eee;">
+    <div class="footer">
         <a class="footer_logo" href="https://www.nasa.gov/" target="_blank">
             {% load static %}<img style="float:right;height:75px" src="{% static 'media/NASA_logo.png' %}"
                 alt="NASA Logo"></img>
