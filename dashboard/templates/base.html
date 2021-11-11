@@ -10,6 +10,7 @@
     <title>{% block title %}{% endblock %}</title>
     {% load static %}<link rel="stylesheet" href="{%  static  'css/style.css'  %}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -17,7 +18,7 @@
 
 
     <!--Creating Responsive Menu Bar for Block Content-->
-    <navbar class="navbar">
+    <navbar class="navbar" style="z-index: 1">
         <a href="/" class="title">CDI Dashboard</a>
 
         <!--Creating Alert Icon with link-->
