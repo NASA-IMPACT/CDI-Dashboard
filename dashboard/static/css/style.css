@@ -23,21 +23,7 @@ body {
 	
 
 }
-.section1 {
-	width:650px;
-	height:400px;
-	
-	padding:20px
-
-}
-.section2 {
-	width:650px;
-	height:400px;
-	
-	padding:20px
-
-}
-.section3 {
+.section3 .section2 .section1{
 	width:650px;
 	height:400px;
 	
@@ -65,7 +51,6 @@ body {
   width:100%;
 	height:100%;
 
-	
 }
 
   .navbar {
