@@ -16,7 +16,8 @@ class Main_View(View):
     def get(self, request):
 
         # CDI Metrics Dictionary
-        all_metrics_qs = CAPInstance.objects.values("date", "masterlist_count", "climate_collection_count")
+        all_metrics_qs = CAPInstance.objects.values("date", "masterlist_count", "climate_collection_count")\
+        .order_by("date")
         all_metrics = list(all_metrics_qs)
 
         # Current Status
