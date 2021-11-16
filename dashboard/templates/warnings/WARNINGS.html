@@ -22,7 +22,7 @@
     <tbody>
       {% for item in all_warnings %}
       <tr>
-      <td>{{ item.date }} </td>
+      <td><a href="/warnings/{{ item.cap_id }}">{{ item.date }}</a></td>
       <td>{{ item.broken_urls }}</td>
       <td>{{ item.lost_climate_tag }}</td>
       <td>{{ item.not_in_masterlist }}</td>

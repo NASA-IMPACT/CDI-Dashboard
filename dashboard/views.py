@@ -26,7 +26,7 @@ class Main_View(View):
         
 
         # Total Warnings
-        total_warnings_qs = CAPInstance.objects.values("date", "total_warnings").order_by("date").reverse()
+        total_warnings_qs = CAPInstance.objects.values("cap_id", "date", "total_warnings").order_by("date").reverse()
         total_warnings = list(total_warnings_qs)
         
         # Generatig Timeseries
@@ -41,7 +41,7 @@ class Main_View(View):
               title='Timeseries')
         graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
         
-        context = {'all_metrics':all_metrics, "current_metrics":current_metrics, "total_warnings":total_warnings, "graphJSON":graphJSON}
+        context = {'all_metrics':all_metrics, "current_metrics":current_metrics, "total_warnings":total_warnings[:6], "graphJSON":graphJSON}
 
         return render(request, "HOMEPAGE.html", context)
 
@@ -56,7 +56,7 @@ class Warnings_View(View):
     def get(self, request):
 
         # All Warnings
-        all_warnings_qs = CAPInstance.objects.values("date", "broken_urls", "lost_climate_tag","not_in_masterlist", "total_warnings")\
+        all_warnings_qs = CAPInstance.objects.values("cap_id", "date", "broken_urls", "lost_climate_tag","not_in_masterlist", "total_warnings")\
         .order_by("date").reverse()
         all_warnings = list(all_warnings_qs)
 
@@ -66,9 +66,63 @@ class Warnings_View(View):
 
 class WarningsInstance_View(View):
 
-    def get(self, request):
+    def get(self, request, **kwargs):
 
-        return render(request, "warnings/WARNINGS_INSTANCE.html")
+        cap_id = kwargs['cap_id']
+        cap_instance = CAPInstance.objects.get(cap_id=cap_id)
+
+        # Grab Masterlist Atrributes
+        brokenlist = self.get_broken_urls(cap_instance)
+        retaglist = self.get_retag(cap_instance)
+        nimlist = self.get_nim(cap_instance)
+
+        context = {'date': cap_instance.date, 'brokenlist':brokenlist[:5], 'retaglist': retaglist[:5], 'nimlist': nimlist[:5]}
+
+        return render(request, "warnings/WARNINGS_INSTANCE.html", context)
+
+    def get_broken_urls(self, cap_instance):
+
+        broken_urls_qs = BrokenAPI.objects.filter(cap_id=cap_instance)
+
+        # Get Masterlist Attributes
+        broken_datasets = []
+
+        for broken in broken_urls_qs:
+            masterlist_obj = broken.datagov_ID
+
+            masterlist_dict = {
+                                'title': masterlist_obj.title,
+                                'catalog_url': masterlist_obj.catalog_url
+            }
+
+            broken_datasets.append(masterlist_dict)
+
+        return broken_datasets
+
+    def get_retag(self, cap_instance):
+
+        retag_qs = Retag.objects.filter(cap_id=cap_instance)
+
+        # Get Masterlist Attributes
+        retag_datasets = []
+
+        for retag in retag_qs:
+            masterlist_obj = retag.datagov_ID
+
+            masterlist_dict = {
+                                'title': masterlist_obj.title,
+                                'catalog_url': masterlist_obj.catalog_url,
+            }
+
+            retag_datasets.append(masterlist_dict)
+
+        return retag_datasets
+
+    def get_nim(self, cap_instance):
+
+        nim_qs = NotInMasterlist.objects.filter(cap_id=cap_instance).values('title', 'catalog_url')
+
+        return list(nim_qs)
       
 class Retag_View(View):
 
