@@ -2,6 +2,7 @@ import json
 import pandas as pd
 import plotly
 import plotly.express as px
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views import View
@@ -74,7 +75,10 @@ class WarningsInstance_View(View):
     def get(self, request, **kwargs):
 
         cap_id = kwargs['cap_id']
-        cap_instance = CAPInstance.objects.get(cap_id=cap_id)
+        try:
+            cap_instance = CAPInstance.objects.get(cap_id=cap_id)
+        except:
+            return HttpResponse("<html><h1>Page Not Found</h1></html>")
 
         # Grab Masterlist Atrributes
         brokenlist = self.dataset_fetcher(cap_instance, BrokenAPI)
@@ -93,7 +97,10 @@ class WarningsInstance_View(View):
         datasets = []
 
         for item in queryset:
-            masterlist_obj = item.datagov_ID
+            try:
+                masterlist_obj = item.datagov_ID
+            except:
+                continue
 
             masterlist_dict = {
                                 'title': masterlist_obj.title,
