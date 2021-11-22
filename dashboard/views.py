@@ -85,7 +85,7 @@ class WarningsInstance_View(View):
         retaglist = self.dataset_fetcher(cap_instance, Retag)
         nimlist = self.get_nim(cap_instance)
 
-        context = {'date': cap_instance.date, 'brokenlist':brokenlist[:5], 'retaglist': retaglist[:5], 'nimlist': nimlist[:5]}
+        context = {'date': cap_instance.date, 'brokenlist':brokenlist, 'retaglist': retaglist, 'nimlist': nimlist}
 
         return render(request, "warnings/WARNINGS_INSTANCE.html", context)
 
