@@ -143,7 +143,8 @@ class Retag_View(View):
                                 'catalog_url': masterlist_obj.catalog_url,
                                 'organization': masterlist_obj.organization,
                                 'cdi_themes': masterlist_obj.cdi_themes,
-                                'metadata_type' : masterlist_obj.metadata_type
+                                'metadata_type' : masterlist_obj.metadata_type,
+                                'status': masterlist_obj.status
             }
 
             retag_datasets.append(masterlist_dict)
