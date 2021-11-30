@@ -120,7 +120,7 @@ class Masterlist_View(View):
 
         ml_filter = MasterlistFilter(request.GET, queryset=masterlist_qs)
         masterlist = list(ml_filter.qs)
-
+        
         return render(request, "cdi_masterlist/CDI_MASTERLIST.html", {'masterlist':masterlist, 'ml_filter':ml_filter})
 
 class MasterlistDownload_View(View):
