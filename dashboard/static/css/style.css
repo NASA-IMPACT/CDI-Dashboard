@@ -424,8 +424,9 @@ text-align:start;
     .navbar li {
       
       float: right;
-      font-size: 40%;
-      border:20px solid transparent;
+      font-size: 70%;
+      border-right:5px solid transparent;
+      border-top:10px solid transparent;
 
     }
     .navbar li a {
@@ -495,5 +496,13 @@ text-align:start;
         height: 90%;
         text-align: center
       
+      }
+      .navbar li {
+      
+        float: right;
+        font-size: 70%;
+        border-right:70px solid transparent;
+        border-top:10px solid transparent;
+  
       }
     }
