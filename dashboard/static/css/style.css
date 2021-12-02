@@ -335,14 +335,14 @@ body {
     .scrolling{
       overflow-y:scroll;
       height:500px;
-      width:100%;
+      width:90%;
       
     }
     .masterlist-table { 
       border-collapse: collapse;
-      font-size: 50%;
+      font-size: 15px;
       font-family: sans-serif;
-      width:90%;
+      width:100%;
   
     }
     .masterlist-table thead tr {
@@ -505,4 +505,5 @@ p{
   }
 
   }
+
   

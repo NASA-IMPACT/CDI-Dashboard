@@ -50,35 +50,22 @@
 
 				<thead>
 					<tr>
-						<th>CDI ID</th>
-						<th>Name</th>
 						<th>Title</th>
 						<th>Organization</th>
-						<th>Catalog URL</th>
-						<th>API URL</th>
 						<th>CDI Themes</th>
 						<th>Metadata Type</th>
-						<th>Geoplatform ID</th>
 						<th>Status</th>
-						<th>Data.gov ID</th>
-
 					</tr>
 				</thead>
 
 				<tbody>
 					{% for item in masterlist %}
 					<tr>
-						<td>{{ item.cdi_id }} </td>
-						<td>{{ item.name }} </td>
-						<td>{{ item.title }} </td>
+						<td><a target="_blank" href="{{ item.catalog_url }} ">{{ item.title }}</a></td>
 						<td>{{ item.organization }} </td>
-						<td><a target="_blank" href="{{ item.catalog_url }} ">{{ item.catalog_url }}</a></td>
-						<td><a target="_blank" href="{{ item.api_url }}">{{ item.api_url }}</a></td>
 						<td>{{ item.cdi_themes }} </td>
 						<td>{{ item.metadata_type }} </td>
-						<td>{{ item.geoplatform_id }} </td>
 						<td>{{ item.status }} </td>
-						<td>{{ item.datagov_ID }} </td>
 					</tr>
 					{% endfor %}
 
@@ -97,3 +84,4 @@
 	</body>
 
 	{% endblock %}
+	

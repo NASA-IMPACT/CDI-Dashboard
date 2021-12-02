@@ -6,8 +6,9 @@ function toggledropdown() {
         if (displaySetting == 'block') {
             dropdown.style.display = 'none';
           }
-          else {
-            dropdown.style.display = 'block';
-          }
+        else {
+          dropdown.style.display = 'block';
+        }
     
   }
+
