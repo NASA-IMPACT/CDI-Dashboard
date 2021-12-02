@@ -182,5 +182,12 @@ class QAUpdates_View(View):
 
     def get(self, request):
 
-        return render(request, "cdi_masterlist/qa_updates/QA_UPDATES.html")
+        qaupdates_qs = QAUpdates.objects.values()
+        qaupdates = list(qaupdates_qs)
+
+        #date = CAPInstance.objects.filter(cap_id=)
+
+        content = {'qaupdates': qaupdates}
+
+        return render(request, "cdi_masterlist/qa_updates/QA_UPDATES.html", content)
 

@@ -1,1 +1,15 @@
 {% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}<link rel="stylesheet" href="{%  static  'css/warnings_style.css'  %}">
+
+<body>
+
+	{% for update in qaupdates %}
+
+  		{{ update }}
+
+  	{% endfor %}
+</body>
+{% endblock %}
