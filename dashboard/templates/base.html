@@ -1,4 +1,3 @@
-
 <!--Base File for Static Content-->
 
 <!DOCTYPE html>
@@ -8,8 +7,11 @@
     <!--Referencing style.css file and icon page-->
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
-    {% load static %}<link rel="stylesheet" href="{%  static  'css/style.css'  %}">
+    {% load static %}
+    <link rel="stylesheet" href="{%  static  'css/style.css'  %}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    {% load static %}
+    <script src="{%  static  'scripts/script.js'  %}"></script>
 </head>
 
 <body>
@@ -69,3 +71,4 @@
 </body>
 
 </html>
+
