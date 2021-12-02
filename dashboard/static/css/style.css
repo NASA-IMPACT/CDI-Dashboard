@@ -334,7 +334,7 @@ body {
     }
     .scrolling{
       overflow-y:scroll;
-      height:500px;
+      height:800px;
       width:90%;
       
     }
@@ -373,6 +373,12 @@ body {
     
   /* Styling for different window sizes */
   @media (min-width: 1127px){
+    .scrolling{
+      overflow-y:scroll;
+      height:500px;
+      width:90%;
+      
+    }
     .navbar li {
       
       float: left;
