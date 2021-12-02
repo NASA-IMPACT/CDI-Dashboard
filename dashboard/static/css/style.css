@@ -11,6 +11,13 @@ body {
     color:white;
     text-decoration: none;
   }
+
+  .bluehyper{
+    color:#002554;
+    border-right:30px solid transparent;
+    text-decoration: underline;
+
+  }
   
 
 .dropbtn {
