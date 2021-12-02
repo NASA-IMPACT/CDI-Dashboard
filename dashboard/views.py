@@ -55,7 +55,42 @@ class Charts_View(View):
 
     def get(self, request):
 
-        return render(request, "metrics/METRICS.html")
+        # Get Masterlist
+        masterlist_qs = Masterlist.objects.values()
+        masterlist = list(masterlist_qs)
+
+        # Get Climate Tag Metrics
+        recent_cap_qs = CAPInstance.objects.all().order_by("date").reverse()[:1]
+        recent_cap = recent_cap_qs[0]
+
+        climate_collection_count = recent_cap.climate_collection_count
+        masterlist_count = recent_cap.masterlist_count
+        notag_count = masterlist_count - climate_collection_count
+
+        # Generate Charts
+        agency_graph = self.generate_by_agency_chart(masterlist)
+        theme_chart = self.generate_by_theme_chart(masterlist)
+        geospatial_chart = self.generate_geospatial_chart(masterlist)
+        climate_tag_chart = self.generate_climate_tag_chart(climate_collection_count, notag_count)
+
+        context = {"agency_graphJSON": agency_graph, "theme_graphJSON": theme_chart,\
+                     "geospatial_graphJSON": geospatial_chart, "climate_graphJSON": climate_tag_chart}
+
+        return render(request, "metrics/METRICS.html", context)
+
+    def generate_by_agency_chart(self, masterlist):
+        pass
+
+    def generate_by_theme_chart(self, masterlist):
+        pass
+
+    def generate_geospatial_chart(self, masterlist):
+        pass
+
+    def generate_climate_tag_chart(self, tag_count, notag_count):
+        return [tag_count, notag_count]
+
+
 
 class Warnings_View(View):
 
