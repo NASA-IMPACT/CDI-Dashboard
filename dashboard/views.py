@@ -182,10 +182,23 @@ class QAUpdates_View(View):
 
     def get(self, request):
 
-        qaupdates_qs = QAUpdates.objects.values()
-        qaupdates = list(qaupdates_qs)
+        caps = CAPInstance.objects.all().order_by("date").reverse()
 
-        #date = CAPInstance.objects.filter(cap_id=)
+        qaupdates = []
+
+        for capinstance in caps:
+
+            date = capinstance.date
+
+            qa_qs = QAUpdates.objects.filter(cap_id=capinstance).values()
+            qalist = list(qa_qs)
+
+            if len(qalist) == 0:
+                continue
+
+            instance_qa = {"date": date, "qalist": qalist}
+
+            qaupdates.append(instance_qa)
 
         content = {'qaupdates': qaupdates}
 
