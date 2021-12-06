@@ -4,8 +4,9 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: white;
-    background: url("/static/BeloSurMerMadagascar.jpg") 50% 0 no-repeat fixed;
+    background-color: rgb(197, 37, 37);
+    background: url("/static/media/greenlandseaice_oli_2020185_lrg.jpeg") no-repeat fixed;
+    background-size: 500%;
   }
   
   a {
@@ -163,7 +164,7 @@ text-align:start;
     list-style: none;
     overflow: hidden;
     background-color: #002554;
-    font-size: 30px;
+    font-size: 1.8vw;
     height:max-content;
     
   }
@@ -314,6 +315,14 @@ text-align:start;
   /* Styling for different window sizes */
   /*@media screen and (min-width: 1127px){*/
   @media (min-width: 1127px){
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: rgb(197, 37, 37);
+      background: url("/static/media/greenlandseaice_oli_2020185_lrg.jpeg") 50% 0 no-repeat fixed;
+      background-size: 130%;
+    }
+    
     .container {
       display: flex;
       flex-wrap: wrap;
@@ -395,9 +404,10 @@ text-align:start;
       .information h1 {
       font-family: Arial, Helvetica, sans-serif;
       font-size: 30px;
+      font-size: 2vw;
       width:90%;
       text-align:start;
-      padding-top:20px;
+      padding-top:10px;
       
       
       }
@@ -405,10 +415,9 @@ text-align:start;
       .information p {
       font-family: Arial, Helvetica, sans-serif;
       font-size: 20px;
+      font-size: 1.2vw;
       width:90%;
       text-align:start;
-      
-      
       }
 
     .navbar {
@@ -425,7 +434,7 @@ text-align:start;
       
       float: right;
       font-size: 70%;
-      border-right:5px solid transparent;
+      border-right:50px solid transparent;
       border-top:10px solid transparent;
 
     }
@@ -433,7 +442,8 @@ text-align:start;
       padding: 20px 20px;
       line-height: 100%;
       max-width: max-content;
-      font-size: 100%;
+      font-size: 15px;
+      font-size: 1vw;
       border-radius:10px;
     }
     .navbar .menu-items {
@@ -483,7 +493,7 @@ text-align:start;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      height:800px;
+      height:900px;
       
       }
       .metrics.label h1{
