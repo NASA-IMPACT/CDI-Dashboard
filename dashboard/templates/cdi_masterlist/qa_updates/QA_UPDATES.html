@@ -1,1 +1,46 @@
 {% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}<link rel="stylesheet" href="{%  static  'css/warnings_style.css'  %}">
+
+<body>
+
+	{% for update in qaupdates %}
+
+		<p>CAP Instance: {{ update.date }}</p>
+
+		<ul>
+  		{% for item in update.qalist %}
+
+  			<p>Datagov ID: {{ item.datagov_ID_id }}</p>
+
+  			{% if item.name %}
+  			<li>Name: {{ item.name }}</li>
+  			{% endif %}
+
+  			{% if item.title %}
+  			<li>Title: {{ item.title }}</li>
+  			{% endif %}
+
+  			{% if item.organization %}
+  			<li>Organization: {{ item.organization }}</li>
+  			{% endif %}
+
+  			{% if item.catalog_url %}
+  			<li>Catalog URL: {{ item.catalog_url }}</li>
+  			{% endif %}
+
+  			{% if item.metadata_type %}
+  			<li>Metadata Type: {{ item.metadata_type }}</li>
+  			{% endif %}
+
+  
+
+  		{% endfor %}
+  		</ul>
+
+  	{% endfor %}
+
+</body>
+{% endblock %}
