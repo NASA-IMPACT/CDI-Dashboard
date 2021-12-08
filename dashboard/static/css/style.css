@@ -445,7 +445,7 @@ text-align:start;
       
       float: right;
       font-size: 70%;
-      border-right:50px solid transparent;
+      border-right:40px solid transparent;
       border-top:10px solid transparent;
       
 
@@ -508,7 +508,7 @@ text-align:start;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      height: 900px;
+      height: 800px;
       
       }
       
