@@ -82,27 +82,33 @@ width:100%;
 }
 
 .metrics {
-  display: inline-grid;
-  vertical-align: middle
-}
-
-.metrics.label h1{
-
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 40px; 
-  
   width: 100%;
-  text-align: right;
-  height: 50%;
-  text-align: center
+  height: 90%;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 18px;
+  table-layout: auto;
 
 }
-.metrics.counts h1{
 
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 40px;
-  width: 10%;
-  
+.metrics td:nth-child(1) {
+  text-align: center;
+  border-right: solid;
+  border-width: thick;
+  width: 60%;
+  font-size: 3em;
+  font-size: 3vw;
+  height: 50%
+}
+.metrics td:nth-child(2) {
+  text-align: center;
+  width: 40%;
+  font-size: 5em;
+  font-size: 5vw;
+  height: 50%;
+}
+
+.metrics tr:nth-child(2) {
+  height: 10px;
 }
 
 .section1, .section2, .section3, .section4 {
@@ -130,7 +136,8 @@ height:100%;
 }
 .information h1 {
 font-family: Arial, Helvetica, sans-serif;
-font-size: 30px;
+font-size: 50px;
+font-size: 3vw;
 width:90%;
 text-align:start;
 padding-top:20px;
@@ -140,7 +147,8 @@ padding-top:20px;
 
 .information p {
 font-family: Arial, Helvetica, sans-serif;
-font-size: 20px;
+font-size: 30px;
+font-size: 2.2vw;
 width:90%;
 text-align:start;
 
@@ -175,8 +183,7 @@ text-align:start;
     padding: 20px;
     text-decoration: none;
     width:100%;
-    /*line-height: ;*/
-    /*height: 10%;*/
+    
   }
 
   /* Hovering over Menu Items */
@@ -313,7 +320,6 @@ text-align:start;
   }
   
   /* Styling for different window sizes */
-  /*@media screen and (min-width: 1127px){*/
   @media (min-width: 1127px){
     body {
       margin: 0;
@@ -331,56 +337,61 @@ text-align:start;
       
       }
       
-      
       .metrics {
-        display: inline-grid;
-        vertical-align: middle
-      }
-      
-      .metrics.label h1{
-      
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 30px; 
-        transform: translate(0px, 50%);
         width: 100%;
-        text-align: right;
-        height: 50%;
-        text-align: center
+        height: 90%;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 18px;
+        table-layout: auto;
       
       }
-      .metrics.counts h1{
       
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 40px;
-        width: 10%;
-        
+      .metrics td:nth-child(1) {
+        text-align: center;
+        border-right: solid;
+        border-width: thick;
+        width: 60%;
+        font-size: 3em;
+        font-size: 3vw;
+        height: 50%
+      }
+      .metrics td:nth-child(2) {
+        text-align: center;
+        width: 40%;
+        font-size: 5em;
+        font-size: 5vw;
+        height: 50%;
+      }
+
+      .metrics tr:nth-child(2) {
+        height: 10px;
       }
       
       .section1 {
-      width:50%;
-      height:40%;
-      padding:20px
+        width:50%;
+        height:40%;
+        padding:20px
       
       }
       .section2 {
-      width:40%;
-      height:40%;
+        width:40%;
+        height:40%;
       
-      padding:20px;
+        padding:20px;
       
       
       }
       .section3 {
-      width:30%;
-      height:40%;
+        width:30%;
+        height:40%;
       
-      padding:20px
+        padding:20px
       
       }
       .section4 {
-      width:60%;
-      height:40%;
-      padding:20px
+        width:60%;
+        height:40%;
+        padding:20px
       
       }
       
@@ -396,28 +407,28 @@ text-align:start;
         }
       .chartstyle {
       
-      width:90%;
-      height:100%;
+        width:90%;
+        height:100%;
       
       
       }
       .information h1 {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 30px;
-      font-size: 2vw;
-      width:90%;
-      text-align:start;
-      padding-top:10px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 30px;
+        font-size: 2vw;
+        width:90%;
+        text-align:start;
+        padding-top:10px;
       
       
       }
       
       .information p {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 20px;
-      font-size: 1.2vw;
-      width:90%;
-      text-align:start;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        font-size: 1.2vw;
+        width:90%;
+        text-align:start;
       }
 
     .navbar {
@@ -436,6 +447,7 @@ text-align:start;
       font-size: 70%;
       border-right:50px solid transparent;
       border-top:10px solid transparent;
+      
 
     }
     .navbar li a {
@@ -445,14 +457,17 @@ text-align:start;
       font-size: 15px;
       font-size: 1vw;
       border-radius:10px;
+      
     }
     .navbar .menu-items {
       clear: none;
       float: right;
       max-height: none;
       width: 78%;
-      height:75px;
+      height: 75px;
+      
     }
+
     .navbar .burger-menu {
       display: none;
     }
@@ -479,12 +494,12 @@ text-align:start;
 
     /* Styling the Title */
     .navbar .title {
-    display: block;
-    float: left;
-    font-size: 30px;
-    padding: 20px 20px;
-    text-decoration: none;
-    color: white;
+      display: block;
+      float: left;
+      font-size: 30px;
+      padding: 20px 20px;
+      text-decoration: none;
+      color: white;
     }
 
   }
@@ -493,20 +508,40 @@ text-align:start;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      height:900px;
+      height: 900px;
       
       }
-      .metrics.label h1{
       
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 30px; 
-        transform: translate(0px, 50%);
+      .metrics {
         width: 100%;
-        text-align: right;
         height: 90%;
-        text-align: center
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 18px;
+        table-layout: auto;
       
       }
+      
+      .metrics td:nth-child(1) {
+        text-align: center;
+        border-right: solid;
+        border-width: thick;
+        width: 60%;
+        font-size: 3em;
+        font-size: 3vw;
+        height: 50%
+      }
+      .metrics td:nth-child(2) {
+        text-align: center;
+        width: 40%;
+        font-size: 5em;
+        font-size: 5vw;
+        height: 50%;
+      }
+
+      .metrics tr:nth-child(2) {
+        height: 10px;
+      }
+
       .navbar li {
       
         float: right;
