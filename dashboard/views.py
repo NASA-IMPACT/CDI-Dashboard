@@ -7,7 +7,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views import View
 from .models import Masterlist, CAPInstance, BrokenAPI, Retag, QAUpdates, NotInMasterlist
-
+import plotly.graph_objects as go
 from .filters import MasterlistFilter
 
 
@@ -66,11 +66,13 @@ class Charts_View(View):
         climate_collection_count = recent_cap.climate_collection_count
         masterlist_count = recent_cap.masterlist_count
         notag_count = masterlist_count - climate_collection_count
-
+        
+        #Create DF for Charts
+        masterlist_df = self.convert_to_df(masterlist)
         # Generate Charts
-        agency_graph = self.generate_by_agency_chart(masterlist)
-        theme_chart = self.generate_by_theme_chart(masterlist)
-        geospatial_chart = self.generate_geospatial_chart(masterlist)
+        agency_graph = self.generate_by_agency_chart(masterlist_df)
+        theme_chart = self.generate_by_theme_chart(masterlist_df)
+        geospatial_chart = self.generate_geospatial_chart(masterlist_df)
         climate_tag_chart = self.generate_climate_tag_chart(climate_collection_count, notag_count)
 
         context = {"agency_graphJSON": agency_graph, "theme_graphJSON": theme_chart,\
@@ -78,17 +80,42 @@ class Charts_View(View):
 
         return render(request, "metrics/METRICS.html", context)
 
-    def generate_by_agency_chart(self, masterlist):
-        pass
+    def convert_to_df(self, dictionary):
+        df=pd.DataFrame({})
+        for item in dictionary:
+            dct = {k:[v] for k,v in item.items()}
+            df=df.append(pd.DataFrame.from_dict(dct))
+        df['Count']=1
+        df['Organization']=[x.split('-')[0].upper() for x in df['organization'].tolist()]
+        df['Metadata']=[x.upper() for x in df['metadata_type'].tolist()]
+        return df
 
-    def generate_by_theme_chart(self, masterlist):
-        pass
+    def generate_by_agency_chart(self, masterlist_df):
+        fig = px.pie(masterlist_df, values='Count', names='Organization', color_discrete_sequence=px.colors.sequential.RdBu)
+        graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+        return graphJSON
 
-    def generate_geospatial_chart(self, masterlist):
-        pass
+    def generate_by_theme_chart(self, masterlist_df):
+        flattened_themes = [item.strip().strip('"') for sublist in masterlist_df['cdi_themes'] for item in sublist.split(';')]
+        df=pd.DataFrame()
+        for item in list(set(flattened_themes)):
+            count=flattened_themes.count(item)
+            df=df.append(pd.DataFrame({'Theme':[item],'Count':[flattened_themes.count(item)]}))
+        fig = px.pie(df, values='Count', names='Theme', color_discrete_sequence=px.colors.sequential.RdBu)
+        fig.update_traces(textposition='inside', textinfo='none')
+        graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+        return graphJSON
+
+    def generate_geospatial_chart(self, masterlist_df):
+        fig = px.pie(masterlist_df, values='Count', names='Metadata',color_discrete_sequence=px.colors.sequential.RdBu)
+        graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+        return graphJSON
 
     def generate_climate_tag_chart(self, tag_count, notag_count):
-        return [tag_count, notag_count]
+
+        fig = go.Figure([go.Bar(x=['Climate Tag','No Climate Tag'], y=[tag_count,notag_count])])
+        graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+        return graphJSON
 
 
 

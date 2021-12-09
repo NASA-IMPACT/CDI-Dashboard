@@ -1,1 +1,26 @@
 {% extends "base.html" %}
+
+{% block content %}
+
+<div class='chartstyle' id='chart'></div>
+<div class='chartstyle' id='chart2'></div>
+<div class='chartstyle' id='chart3'></div>
+<div class='chartstyle' id='chart4'></div>
+
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+
+<script type='text/javascript'>
+	var graphs = {{ agency_graphJSON | safe}};
+    var graphs2 = {{ theme_graphJSON | safe}};
+    var graphs3 = {{ geospatial_graphJSON | safe}};
+    var graphs4 = {{ climate_graphJSON | safe}};
+	Plotly.plot('chart', graphs, {});
+    Plotly.plot('chart2', graphs2, {});
+	Plotly.plot('chart3', graphs3, {});
+    Plotly.plot('chart4', graphs4, {});
+</script>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}
