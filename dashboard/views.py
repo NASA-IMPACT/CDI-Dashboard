@@ -227,6 +227,13 @@ class QAUpdates_View(View):
 
             qa_qs = QAUpdates.objects.filter(cap_id=capinstance).values()
             qalist = list(qa_qs)
+            
+            for qa in qalist:
+                qa['name'] = qa['name'][2:-2].replace("', '","\n").replace("'", "")
+                qa['title'] = qa['title'][2:-2].replace("', '","\n").replace("'","")
+                qa['catalog_url'] = qa['catalog_url'][2:-2].replace("', '","\n").replace("'","")
+                qa['organization'] = qa['organization'][2:-2].replace("', '","\n").replace("'","")
+                qa['metadata_type'] = qa['metadata_type'][2:-2].replace("', '","\n").replace("'","")
 
             if len(qalist) == 0:
                 continue

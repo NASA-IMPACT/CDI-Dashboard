@@ -1,0 +1,68 @@
+/* Styling for QA Updates */
+
+.page-title {
+    float:left;
+    font-weight: bold;
+    font-size: 30px;
+    color: black;
+    padding-left: 20px;
+    padding-bottom: 10px;
+  }
+
+.scroll-box {
+    height: 650px;
+    width: 97%;
+    border: 1px solid #ccc;
+    overflow: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-left: 20px;
+    background-color: #eee;
+}
+
+.cap-instance{
+    font-weight: bold;
+    font-size: 25px;
+    color: black;
+}
+
+.datagov-id {
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+}
+
+.qa-updates-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.name p {
+    margin-left: 10px;
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+.title p {
+    margin-left: 10px;
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+.organization p {
+    margin-left: 10px;
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+.catalog-url p {
+    margin-left: 10px;
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+.metadata-type p {
+    margin-left: 10px;
+    font-size: 16px;
+    padding-bottom: 10px;
+}
