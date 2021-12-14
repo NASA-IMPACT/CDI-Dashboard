@@ -1,1 +1,16 @@
 {% extends "base.html" %}
+
+{% block content %}
+
+<body>
+
+	<ul>
+		{% for dataset in climate_collection %}
+
+		<li>dataset</li>
+
+  		{% endfor %}
+  	</ul>
+
+</body>
+{% endblock %}
