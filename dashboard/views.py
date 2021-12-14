@@ -92,28 +92,63 @@ class Charts_View(View):
 
     def generate_by_agency_chart(self, masterlist_df):
         fig = px.pie(masterlist_df, values='Count', names='Organization', color_discrete_sequence=px.colors.sequential.RdBu)
+        fig.update_traces(textinfo='none')
+        fig.update_layout(
+        title="Climate Collection Datasets by Agency",
+        font=dict(
+            family="Trebuchet MS",
+            size=18,
+            color="Black"
+         )
+        )       
         graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
         return graphJSON
 
     def generate_by_theme_chart(self, masterlist_df):
-        flattened_themes = [item.strip().strip('"') for sublist in masterlist_df['cdi_themes'] for item in sublist.split(';')]
+        flattened_themes = [item.strip('"').strip() for sublist in masterlist_df['cdi_themes'] for item in sublist.split(';')]
         df=pd.DataFrame()
+        print(list(set(flattened_themes)))
         for item in list(set(flattened_themes)):
-            count=flattened_themes.count(item)
-            df=df.append(pd.DataFrame({'Theme':[item],'Count':[flattened_themes.count(item)]}))
+            
+            df=df.append(pd.DataFrame({'Theme':[item[:30]],'Count':[flattened_themes.count(item)]}))
         fig = px.pie(df, values='Count', names='Theme', color_discrete_sequence=px.colors.sequential.RdBu)
-        fig.update_traces(textposition='inside', textinfo='none')
+        fig.update_layout(
+        title="CDI Theme Distribution",
+        font=dict(
+            family="Trebuchet MS",
+            size=18,
+            color="Black"
+         )
+        )
+        fig.update_traces(textinfo='none', )
+
         graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
         return graphJSON
 
     def generate_geospatial_chart(self, masterlist_df):
         fig = px.pie(masterlist_df, values='Count', names='Metadata',color_discrete_sequence=px.colors.sequential.RdBu)
+        fig.update_layout(
+        title="Geospatial vs Non-Geospatial",
+        font=dict(
+            family="Trebuchet MS",
+            size=18,
+            color="Black"
+         )
+        )
         graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
         return graphJSON
 
     def generate_climate_tag_chart(self, tag_count, notag_count):
 
         fig = go.Figure([go.Bar(x=['Climate Tag','No Climate Tag'], y=[tag_count,notag_count])])
+        fig.update_layout(
+        title="Dataset Climate Tag Status",
+        font=dict(
+            family="Trebuchet MS",
+            size=18,
+            color="Black"
+         )
+        )
         graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
         return graphJSON
 

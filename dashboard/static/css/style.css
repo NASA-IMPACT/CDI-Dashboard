@@ -114,6 +114,13 @@ body {
 	padding:20px
 
 }
+.mapsection {
+	width:650px;
+	height:500px;
+	
+	padding:20px
+
+}
 
 .information {
 	width:100%;
@@ -382,6 +389,14 @@ body {
     
   /* Styling for different window sizes */
   @media (min-width: 1127px){
+    .mapsection {
+      width:40%;
+      height:275px;
+    
+      padding:20px
+    
+    }
+    
     .scrolling{
       overflow-y:scroll;
       height:500px;
