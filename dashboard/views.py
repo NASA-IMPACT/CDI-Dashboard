@@ -196,7 +196,7 @@ class ClimateCollection_View(View):
     def get(self, request):
 
         try:
-            climate_collection_json = fetch_climate_collection()
+            climate_collection_json = self.fetch_climate_collection()
         except:
             return render(request, "climate_collection/NOT_FOUND.html")
             
@@ -205,7 +205,7 @@ class ClimateCollection_View(View):
 
         return render(request, "climate_collection/CLIMATE_COLLECTION.html", context)
 
-    def fetch_climate_collection():
+    def fetch_climate_collection(self):
 
         api_call = requests.get('https://catalog.data.gov/api/3/action/package_search?fq=groups:climate5434&rows=2000').json()
         cdi_datasets = api_call['result']['results']
