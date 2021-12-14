@@ -114,7 +114,7 @@ class WarningsInstance_View(View):
         try:
             cap_instance = CAPInstance.objects.get(cap_id=cap_id)
         except:
-            return HttpResponse("<html><h1>Page Not Found</h1></html>")
+            return render(request, "warnings/NOT_FOUND.html", {'user_input': cap_id})
 
         # Grab Masterlist Atrributes
         brokenlist = self.dataset_fetcher(cap_instance, BrokenAPI)
