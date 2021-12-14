@@ -1,89 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-<center>
 
-	<body>
+<body>
+	<form method="get">
 
-		<div class="table_header">
-			<h3 class='left-title'>CDI Masterlist</h3>
-		</div>
-		<div class="dropdown">
-			<a class="bluehyper" href="/cdi-masterlist/qa-updates">QA Updates</a>
-			<a class="bluehyper" href="/cdi-masterlist/download">Download</a>
-			<button onclick="toggledropdown()" class="dropbtn"><span
-					class="material-icons">filter_alt</span>&nbsp&nbspFilter by Attributes</button>
-			<form class="built-in-form" method="get">
-				<div id="myDropdown" class="dropdown-content">
-					<label for="id_title">Title:</label></th>
-					<td><input type="text" name="title" id="id_title"><br><br>
-						<label for="id_organization">Organization:</label></th>
-					<td><input type="text" name="organization" id="id_organization"><br><br>
-						<label for="id_cdi_themes">Themes:</label></th>
-					<td><input type="text" name="cdi_themes" id="id_cdi_themes"><br><br>
-						<label for="id_status">Status:</label></th>
-					<td><select name="status" id="id_status">
-							<option value="" selected>---------</option>
+		{{ml_filter.form}}
 
-							<option value="Active">Active</option>
+		<button type="submit">Filter</button>
 
-							<option value="Not Active">Not Active</option>
+	</form>
 
-							<option value="Retired">Retired</option>
+	<p>CDI Masterlist</p>
 
-						</select><br><br>
-						<label for="id_metadata_type">Metadata type:</label></th>
-					<td><select name="metadata_type" id="id_metadata_type">
-							<option value="" selected>---------</option>
+	<ul>
+	{% for item in masterlist %}
 
-							<option value="No metadata type">No Metadata Type</option>
+		<li><a href="{{ item.catalog_url }}">{{ item.title }} ---- {{ item.cdi_themes }}</a></li>
 
-							<option value="geospatial">Geospatial</option>
+	{% endfor %}
+	</ul>
 
-						</select><br><br>
-						<button type="submit">Filter</button>
-				</div>
-			</form>
-		</div>
+</body>
 
-		</div>
-		<div class="scrolling">
-			<table class="masterlist-table ">
-
-				<thead>
-					<tr>
-						<th>Title</th>
-						<th>Organization</th>
-						<th>CDI Themes</th>
-						<th>Metadata Type</th>
-						<th>Status</th>
-					</tr>
-				</thead>
-
-				<tbody>
-					{% for item in masterlist %}
-					<tr>
-						<td><a target="_blank" href="{{ item.catalog_url }} ">{{ item.title }}</a></td>
-						<td>{{ item.organization }} </td>
-						<td>{{ item.cdi_themes }} </td>
-						<td>{{ item.metadata_type }} </td>
-						<td>{{ item.status }} </td>
-					</tr>
-					{% endfor %}
-
-
-
-
-				</tbody>
-			</table>
-
-		</div>
-		</div>
-
-
-
-
-	</body>
-
-	{% endblock %}
-	
+{% endblock %}
