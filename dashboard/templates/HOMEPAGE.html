@@ -70,10 +70,7 @@
 <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 <script type='text/javascript'>
 	var graphs = {{ graphJSON | safe }};
-	/*var layout = {title: 'Climate Data Records in Masterlist and Climate Collection'};*/
-	/*layout = go.Layout(title='Climate Data Records in Masterlist and Climate Collection',titlefont=dict(size=18))*/
-	/*var config = {responsive: true}*/
-	Plotly.plot('chart', graphs);/*, layout || {}, config);*/
+	Plotly.plot('chart', graphs);
 </script>
 
 {% endblock %}

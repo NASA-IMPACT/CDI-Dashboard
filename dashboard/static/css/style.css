@@ -1,27 +1,31 @@
 /* CSS Style Sheet for CDI Dashboard */
 
+:root {
+  --impact-color: #002554;
+}
+
 /* Setting font */
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(197, 37, 37);
-    background: url("/static/media/greenlandseaice_oli_2020185_lrg.jpeg") no-repeat fixed;
-    background-size: 500%;
-  }
-  
-  a {
-    color:white;
-    text-decoration: none;
-  }
-  
-  
-  /* Styling the Menu Bar and Collapsible Menu (i.e. navbar) */
-  
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(197, 37, 37);
+  background: url("/static/media/greenlandseaice_oli_2020185_lrg.jpeg") no-repeat fixed;
+  background-size: 500%;
+}
 
-.footer_logo{
-  padding:10px;
-  float:right;
-  height:70px
+a {
+  color: white;
+  text-decoration: none;
+}
+
+
+/* Styling the Menu Bar and Collapsible Menu (i.e. navbar) */
+
+
+.footer_logo {
+  padding: 10px;
+  float: right;
+  height: 70px
 }
 
 
@@ -32,8 +36,9 @@ body {
   font-family: sans-serif;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   width: 90%;
-  overflow-y:scroll;
+  overflow-y: scroll;
 }
+
 .styled-table thead tr {
   background-color: #009879;
   color: #ffffff;
@@ -42,8 +47,8 @@ body {
 
 .styled-table th,
 .styled-table td {
-    padding: 12px 15px;
-    text-align:center;
+  padding: 12px 15px;
+  text-align: center;
 }
 
 .styled-table tbody tr {
@@ -55,30 +60,28 @@ body {
 }
 
 
-  .styled-table  caption {
-    display: table-caption;
-    text-align: center;
-    padding:10px;
-    font-size: 10px;
-    font-family: sans-serif;
-    font-weight: bold;
-    background-color: #002554;
-    color: white;
-    height: 10px
-    
-  }
-
-.container {
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-height:650px;
-
+.styled-table caption {
+  display: table-caption;
+  text-align: center;
+  padding: 10px;
+  font-size: 10px;
+  font-family: sans-serif;
+  font-weight: bold;
+  background-color: var(--impact-color);
+  color: white;
+  height: 10px
 }
 
-.mobilespacer{
-height:100px;
-width:100%;
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 650px;
+}
+
+.mobilespacer {
+  height: 100px;
+  width: 100%;
 }
 
 .metrics {
@@ -87,7 +90,6 @@ width:100%;
   font-family: Arial, Helvetica, sans-serif;
   margin: 18px;
   table-layout: auto;
-
 }
 
 .metrics td:nth-child(1) {
@@ -99,6 +101,7 @@ width:100%;
   font-size: 3vw;
   height: 50%
 }
+
 .metrics td:nth-child(2) {
   text-align: center;
   width: 40%;
@@ -112,87 +115,369 @@ width:100%;
 }
 
 .section1, .section2, .section3, .section4 {
-width:90%;
-height:40%;
-padding:20px
+  width: 90%;
+  height: 40%;
+  padding: 20px
 }
 
 
 .information {
-width:100%;
-height:100%;
-border:2px solid white;
-border-radius: 30px;
-padding:10px;
-background:white;
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 100%;
+  height: 100%;
+  border: 2px solid white;
+  border-radius: 30px;
+  padding: 10px;
+  background: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 .chartstyle {
 
-width:90%;
-height:100%;
-
-
+  width: 90%;
+  height: 100%;
 }
+
 .information h1 {
-font-family: Arial, Helvetica, sans-serif;
-font-size: 50px;
-font-size: 3vw;
-width:90%;
-text-align:start;
-padding-top:20px;
-
-
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 50px;
+  font-size: 3vw;
+  width: 90%;
+  text-align: start;
+  padding-top: 20px;
 }
 
 .information p {
-font-family: Arial, Helvetica, sans-serif;
-font-size: 30px;
-font-size: 2.2vw;
-width:90%;
-text-align:start;
-
-
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-size: 2.2vw;
+  width: 90%;
+  text-align: start;
 }
 
+.navbar {
+  background-color: var(--impact-color);
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  z-index: 1;
+  color: white;
+}
+
+.navbar ul {
+  color: white;
+  margin: 0;
+  padding: 0px;
+  list-style: none;
+  overflow: hidden;
+  background-color: var(--impact-color);
+  font-size: 1.8vw;
+  height: max-content;
+}
+
+.navbar li a {
+  color: white;
+  display: flex;
+  padding: 20px;
+  text-decoration: none;
+  width: 100%;
+}
+
+/* Hovering over Menu Items */
+.navbar li a:hover,
+.navbar .menu-button:hover {
+  background-color: #ccc;
+}
+
+/* Styling the Title */
+.navbar .title {
+  display: block;
+  float: left;
+  font-size: 30px;
+  padding: 20px 20px;
+  text-decoration: none;
+  color: white;
+}
+
+/* Styling the Menu Items */
+
+.navbar .menu-items {
+  clear: both;
+  max-height: 0px;
+  width: 20%;
+  transition: max-height 0.2s ease-out;
+  float: right;
+}
+
+/* Styling Collapsible Menu */
+
+.navbar .burger-menu {
+  cursor: pointer;
+  float: right;
+  padding: 36px 20px;
+  position: relative;
+  user-select: none;
+}
+
+.navbar .burger-menu .lines {
+  background: white;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 18px;
+}
+
+.navbar .burger-menu .lines:before,
+.navbar .burger-menu .lines:after {
+  background: white;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+.navbar .burger-menu .lines:before {
+  top: 5px;
+}
+
+.navbar .burger-menu .lines:after {
+  top: -5px;
+}
+
+/* Checkbox is used for clicking the collapsible menu, lines are transformed to make X */
+.navbar .menu-button {
+  display: none;
+}
+
+.navbar .menu-button:checked~.menu-items {
+  max-height: 800px;
+}
+
+.navbar .menu-button:checked~.burger-menu .lines {
+  background: transparent;
+}
+
+.navbar .menu-button:checked~.burger-menu .lines:before {
+  transform: rotate(-45deg);
+}
+
+.navbar .menu-button:checked~.burger-menu .lines:after {
+  transform: rotate(45deg);
+}
+
+.navbar .menu-button:checked~.burger-menu:not(.steps) .lines:before,
+.navbar .menu-button:checked~.burger-menu:not(.steps) .lines:after {
+  top: 0;
+}
+
+
+/* Styling the Alert Icon */
+
+
+.alert-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  color: white;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+}
+
+.alert-button:hover {
+  cursor: pointer;
+}
+
+.alert-icon:hover {
+  background: #ccc;
+}
+
+.alert-button:active {
+  background: #cccccc;
+}
+
+/* Styling the footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #eee;
+}
+
+/* Styling for different window sizes */
+@media (min-width: 1127px) {
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(197, 37, 37);
+    background: url("/static/media/greenlandseaice_oli_2020185_lrg.jpeg") 50% 0 no-repeat fixed;
+    background-size: 130%;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 650px;
+  }
+
+  .metrics {
+    width: 100%;
+    height: 90%;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 18px;
+    table-layout: auto;
+  }
+
+  .metrics td:nth-child(1) {
+    text-align: center;
+    border-right: solid;
+    border-width: thick;
+    width: 60%;
+    font-size: 3em;
+    font-size: 3vw;
+    height: 50%
+  }
+
+  .metrics td:nth-child(2) {
+    text-align: center;
+    width: 40%;
+    font-size: 5em;
+    font-size: 5vw;
+    height: 50%;
+  }
+
+  .metrics tr:nth-child(2) {
+    height: 10px;
+  }
+
+  .section1 {
+    width: 50%;
+    height: 40%;
+    padding: 20px
+  }
+
+  .section2 {
+    width: 40%;
+    height: 40%;
+
+    padding: 20px;
+  }
+
+  .section3 {
+    width: 30%;
+    height: 40%;
+
+    padding: 20px
+  }
+
+  .section4 {
+    width: 60%;
+    height: 40%;
+    padding: 20px
+  }
+
+  .information {
+    width: 100%;
+    height: 100%;
+    border: 2px solid white;
+    border-radius: 30px;
+    padding: 10px;
+    background: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .chartstyle {
+
+    width: 90%;
+    height: 100%;
+  }
+
+  .information h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-size: 2vw;
+    width: 90%;
+    text-align: start;
+    padding-top: 10px;
+  }
+
+  .information p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-size: 1.2vw;
+    width: 90%;
+    text-align: start;
+  }
+
   .navbar {
-    background-color: #002554;
+    background-color: var(--impact-color);
     position: fixed;
     width: 100%;
-    height: 100px;
+    height: 75px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     z-index: 1;
     color: white;
   }
-  
-  .navbar ul {
-    color: white;
-    margin: 0;
-    padding: 0px;
-    list-style: none;
-    overflow: hidden;
-    background-color: #002554;
-    font-size: 1.8vw;
-    height:max-content;
-    
+
+  .navbar li {
+
+    float: right;
+    font-size: 70%;
+    border-right: 40px solid transparent;
+    border-top: 10px solid transparent;
   }
-  
+
   .navbar li a {
-    color: white;
+    padding: 20px 20px;
+    line-height: 100%;
+    max-width: max-content;
+    font-size: 15px;
+    font-size: 1vw;
+    border-radius: 10px;
+
+  }
+
+  .navbar .menu-items {
+    clear: none;
+    float: right;
+    max-height: none;
+    width: 77%;
+    height: 75px;
+
+  }
+
+  .navbar .burger-menu {
+    display: none;
+  }
+
+  .navbar .alert-icon {
+    display: none;
+    float: right;
+  }
+
+  .alert-button {
+    position: relative;
     display: flex;
-    padding: 20px;
-    text-decoration: none;
-    width:100%;
-    
+    align-items: center;
+    justify-content: center;
+    width: 10px;
+    height: 10px;
+    color: white;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+
   }
 
-  /* Hovering over Menu Items */
-  .navbar li a:hover,
-  .navbar .menu-button:hover {
-    background-color: #ccc;
-
-  }
-  
   /* Styling the Title */
   .navbar .title {
     display: block;
@@ -202,352 +487,55 @@ text-align:start;
     text-decoration: none;
     color: white;
   }
-  
-  /* Styling the Menu Items */
-  
-  .navbar .menu-items {
-    clear: both;
-    max-height: 0px;
-    width:20%;
-    transition: max-height 0.2s ease-out;
-    float:right;
-    
 
-  }
-  
-  /* Styling Collapsible Menu */
-  
-  .navbar .burger-menu {
-    cursor: pointer;
-    float: right;
-    padding: 36px 20px;
-    position: relative;
-    user-select: none;
-  }
-  
-  .navbar .burger-menu .lines {
-    background: white;
-    display: block;
-    height: 2px;
-    position: relative;
-    transition: background .2s ease-out;
-    width: 18px;
-  }
-  
-  .navbar .burger-menu .lines:before,
-  .navbar .burger-menu .lines:after {
-    background:white;
-    content: '';
-    display: block;
-    height: 100%;
-    position: absolute;
-    transition: all .2s ease-out;
-    width: 100%;
-  }
-  
-  .navbar .burger-menu .lines:before {
-    top: 5px;
-  }
-  
-  .navbar .burger-menu .lines:after {
-    top: -5px;
-  }
+}
 
-  /* Checkbox is used for clicking the collapsible menu, lines are transformed to make X */
-  .navbar .menu-button {
-    display: none;
-  }
-  
-  .navbar .menu-button:checked ~ .menu-items {
-    max-height: 800px;
-  }
-  
-  .navbar .menu-button:checked ~ .burger-menu .lines {
-    background: transparent;
-  }
-  
-  .navbar .menu-button:checked ~ .burger-menu .lines:before {
-    transform: rotate(-45deg);
-  }
-  
-  .navbar .menu-button:checked ~ .burger-menu .lines:after {
-    transform: rotate(45deg);
-  }
-  
-  .navbar .menu-button:checked ~ .burger-menu:not(.steps) .lines:before,
-  .navbar .menu-button:checked ~ .burger-menu:not(.steps) .lines:after {
-    top: 0;
-  }
-  
-
-  /* Styling the Alert Icon */
-
-
-  
-  .alert-button {
-    position: relative;
+@media (min-width: 1700px) {
+  .container {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-    width: 30px;
-    height: 30px;
-    color: white;
-    background: transparent;
-    border: none;
-    outline: none;
-    border-radius: 50%;
-    
-  }
-  
-  .alert-button:hover {
-    cursor: pointer;
-  }
-
-  .alert-icon:hover {
-      background: #ccc;
-  }
-  
-  .alert-button:active {
-    background: #cccccc;
-  }
-
-   /* Styling the footer */
-   .footer{
-    position:fixed;
-    bottom:0;
-    width: 100%; 
-    background-color:#eee;
-  }
-  
-  /* Styling for different window sizes */
-  @media (min-width: 1127px){
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: rgb(197, 37, 37);
-      background: url("/static/media/greenlandseaice_oli_2020185_lrg.jpeg") 50% 0 no-repeat fixed;
-      background-size: 130%;
-    }
-    
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      height:650px;
-      
-      }
-      
-      .metrics {
-        width: 100%;
-        height: 90%;
-        font-family: Arial, Helvetica, sans-serif;
-        margin: 18px;
-        table-layout: auto;
-      
-      }
-      
-      .metrics td:nth-child(1) {
-        text-align: center;
-        border-right: solid;
-        border-width: thick;
-        width: 60%;
-        font-size: 3em;
-        font-size: 3vw;
-        height: 50%
-      }
-      .metrics td:nth-child(2) {
-        text-align: center;
-        width: 40%;
-        font-size: 5em;
-        font-size: 5vw;
-        height: 50%;
-      }
-
-      .metrics tr:nth-child(2) {
-        height: 10px;
-      }
-      
-      .section1 {
-        width:50%;
-        height:40%;
-        padding:20px
-      
-      }
-      .section2 {
-        width:40%;
-        height:40%;
-      
-        padding:20px;
-      
-      
-      }
-      .section3 {
-        width:30%;
-        height:40%;
-      
-        padding:20px
-      
-      }
-      .section4 {
-        width:60%;
-        height:40%;
-        padding:20px
-      
-      }
-      
-      .information {
-        width:100%;
-        height:100%;
-        border:2px solid white;
-        border-radius: 30px;
-        padding:10px;
-        background:white;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        
-        }
-      .chartstyle {
-      
-        width:90%;
-        height:100%;
-      
-      
-      }
-      .information h1 {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 30px;
-        font-size: 2vw;
-        width:90%;
-        text-align:start;
-        padding-top:10px;
-      
-      
-      }
-      
-      .information p {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 20px;
-        font-size: 1.2vw;
-        width:90%;
-        text-align:start;
-      }
-
-    .navbar {
-      background-color: #002554;
-      position: fixed;
-      width: 100%;
-      height: 75px;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      z-index: 1;
-      color: white;
-    }
-    
-    .navbar li {
-      
-      float: right;
-      font-size: 70%;
-      border-right:40px solid transparent;
-      border-top:10px solid transparent;
-      
-
-    }
-    .navbar li a {
-      padding: 20px 20px;
-      line-height: 100%;
-      max-width: max-content;
-      font-size: 15px;
-      font-size: 1vw;
-      border-radius:10px;
-      
-    }
-    .navbar .menu-items {
-      clear: none;
-      float: right;
-      max-height: none;
-      width: 77%;
-      height: 75px;
-      
-    }
-
-    .navbar .burger-menu {
-      display: none;
-    }
-  
-    .navbar .alert-icon {
-      display: none;
-      float: right;
-    }
-
-    .alert-button {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 10px;
-      height: 10px;
-      color: white;
-      background: transparent;
-      border: none;
-      outline: none;
-      border-radius: 50%;
-      
-    }
-
-    /* Styling the Title */
-    .navbar .title {
-      display: block;
-      float: left;
-      font-size: 30px;
-      padding: 20px 20px;
-      text-decoration: none;
-      color: white;
-    }
+    height: 800px;
 
   }
-  @media (min-width: 1700px){
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      height: 800px;
-      
-      }
-      
-      .metrics {
-        width: 100%;
-        height: 90%;
-        font-family: Arial, Helvetica, sans-serif;
-        margin: 18px;
-        table-layout: auto;
-      
-      }
-      
-      .metrics td:nth-child(1) {
-        text-align: center;
-        border-right: solid;
-        border-width: thick;
-        width: 60%;
-        font-size: 3em;
-        font-size: 3vw;
-        height: 50%
-      }
-      .metrics td:nth-child(2) {
-        text-align: center;
-        width: 40%;
-        font-size: 5em;
-        font-size: 5vw;
-        height: 50%;
-      }
 
-      .metrics tr:nth-child(2) {
-        height: 10px;
-      }
+  .metrics {
+    width: 100%;
+    height: 90%;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 18px;
+    table-layout: auto;
 
-      .navbar li {
-      
-        float: right;
-        font-size: 70%;
-        border-right:70px solid transparent;
-        border-top:10px solid transparent;
-  
-      }
-    }
+  }
+
+  .metrics td:nth-child(1) {
+    text-align: center;
+    border-right: solid;
+    border-width: thick;
+    width: 60%;
+    font-size: 3em;
+    font-size: 3vw;
+    height: 50%
+  }
+
+  .metrics td:nth-child(2) {
+    text-align: center;
+    width: 40%;
+    font-size: 5em;
+    font-size: 5vw;
+    height: 50%;
+  }
+
+  .metrics tr:nth-child(2) {
+    height: 10px;
+  }
+
+  .navbar li {
+
+    float: right;
+    font-size: 70%;
+    border-right: 70px solid transparent;
+    border-top: 10px solid transparent;
+
+  }
+}
