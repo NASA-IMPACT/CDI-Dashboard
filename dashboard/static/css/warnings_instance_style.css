@@ -1,0 +1,59 @@
+ /* Styling Warnings Instance Page */
+
+ label{
+    font-weight: bold;
+    font-size: 30px;
+    color: black;
+    padding-left: 20px;
+ }
+
+  .row {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left:10px;
+  }
+    
+  .column {
+    float: left;
+    width: 32.8%;
+    overflow: auto;
+    height: 650px;
+  }
+  
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  table {
+    border: 0.5px solid black;
+    border-spacing: 0;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px 16px;
+    border: 0.5px solid black;
+    color: black;
+  }
+  
+  th {
+    position: sticky;
+    top: 0;
+    background: #eee;
+    z-index: 1;
+  }
+
+  .column_1_entry {
+    text-align: left;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+  }
