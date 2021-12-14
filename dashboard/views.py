@@ -1,3 +1,4 @@
+import ast
 import json
 import pandas as pd
 import plotly
@@ -230,23 +231,23 @@ class QAUpdates_View(View):
             
             for qa in qalist:
                 try:
-                    qa['name'] = qa['name'][2:-2].replace("', '","\n").replace("'", "")
+                    qa['name'] = self.json_converter(qa['name'])
                 except:
                     pass
                 try:
-                    qa['title'] = qa['title'][2:-2].replace("', '","\n").replace("'","")
+                    qa['title'] = self.json_converter(qa['title'])
                 except:
                     pass
                 try:
-                    qa['catalog_url'] = qa['catalog_url'][2:-2].replace("', '","\n").replace("'","")
+                    qa['catalog_url'] = self.json_converter(qa['catalog_url'])
                 except:
                     pass
                 try:
-                    qa['organization'] = qa['organization'][2:-2].replace("', '","\n").replace("'","")
+                    qa['organization'] = self.json_converter(qa['organization'])
                 except:
                     pass
                 try:
-                    qa['metadata_type'] = qa['metadata_type'][2:-2].replace("', '","\n").replace("'","")
+                    qa['metadata_type'] = self.json_converter(qa['metadata_type'])
                 except:
                     pass
 
@@ -260,4 +261,17 @@ class QAUpdates_View(View):
         content = {'qaupdates': qaupdates}
 
         return render(request, "cdi_masterlist/qa_updates/QA_UPDATES.html", content)
+
+    def json_converter(self, json_string):
+
+        cdi_dict = ast.literal_eval(json_string)
+        formatted_string = "Invalid: {}\nUpdated: {}".format(cdi_dict['Invalid'], cdi_dict['Updated'])
+
+        return formatted_string
+
+
+
+
+
+
 
