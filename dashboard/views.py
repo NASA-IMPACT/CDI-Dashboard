@@ -229,11 +229,26 @@ class QAUpdates_View(View):
             qalist = list(qa_qs)
             
             for qa in qalist:
-                qa['name'] = qa['name'][2:-2].replace("', '","\n").replace("'", "")
-                qa['title'] = qa['title'][2:-2].replace("', '","\n").replace("'","")
-                qa['catalog_url'] = qa['catalog_url'][2:-2].replace("', '","\n").replace("'","")
-                qa['organization'] = qa['organization'][2:-2].replace("', '","\n").replace("'","")
-                qa['metadata_type'] = qa['metadata_type'][2:-2].replace("', '","\n").replace("'","")
+                try:
+                    qa['name'] = qa['name'][2:-2].replace("', '","\n").replace("'", "")
+                except:
+                    pass
+                try:
+                    qa['title'] = qa['title'][2:-2].replace("', '","\n").replace("'","")
+                except:
+                    pass
+                try:
+                    qa['catalog_url'] = qa['catalog_url'][2:-2].replace("', '","\n").replace("'","")
+                except:
+                    pass
+                try:
+                    qa['organization'] = qa['organization'][2:-2].replace("', '","\n").replace("'","")
+                except:
+                    pass
+                try:
+                    qa['metadata_type'] = qa['metadata_type'][2:-2].replace("', '","\n").replace("'","")
+                except:
+                    pass
 
             if len(qalist) == 0:
                 continue
