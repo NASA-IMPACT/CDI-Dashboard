@@ -2,6 +2,7 @@ import json
 import pandas as pd
 import plotly
 import plotly.express as px
+import requests
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView
@@ -113,7 +114,7 @@ class WarningsInstance_View(View):
         try:
             cap_instance = CAPInstance.objects.get(cap_id=cap_id)
         except:
-            return HttpResponse("<html><h1>Page Not Found</h1></html>")
+            return render(request, "warnings/NOT_FOUND.html", {'user_input': cap_id})
 
         # Grab Masterlist Atrributes
         brokenlist = self.dataset_fetcher(cap_instance, BrokenAPI)
@@ -194,7 +195,38 @@ class ClimateCollection_View(View):
 
     def get(self, request):
 
-        return render(request, "climate_collection/CLIMATE_COLLECTION.html")
+        try:
+            climate_collection_json = self.fetch_climate_collection()
+        except:
+            return render(request, "climate_collection/NOT_FOUND.html")
+            
+
+        context = {'climate_collection': climate_collection_json}
+
+        return render(request, "climate_collection/CLIMATE_COLLECTION.html", context)
+
+    def fetch_climate_collection(self):
+
+        api_call = requests.get('https://catalog.data.gov/api/3/action/package_search?fq=groups:climate5434&rows=2000').json()
+        cdi_datasets = api_call['result']['results']
+
+        # Create Desired Dictionary
+
+        datasets_json = []
+
+        for dataset in cdi_datasets:
+            dataset_dict = {}
+
+            dataset_dict['title'] = dataset['title']
+            dataset_dict['catalog_url'] = 'https://catalog.data.gov/dataset/{}'.format(dataset['name'])
+            dataset_dict['api_url'] = 'https://catalog.data.gov/api/3/action/package_show?id={}'.format(dataset['id'])
+            dataset_dict['organization'] = dataset['organization']['name']
+
+
+            datasets_json.append(dataset_dict)
+
+        return datasets_json
+
 
 class Masterlist_View(View):
 
@@ -205,7 +237,9 @@ class Masterlist_View(View):
         ml_filter = MasterlistFilter(request.GET, queryset=masterlist_qs)
         masterlist = list(ml_filter.qs)
         
-        return render(request, "cdi_masterlist/CDI_MASTERLIST.html", {'masterlist':masterlist, 'ml_filter':ml_filter})
+        context = {'masterlist':masterlist, 'ml_filter':ml_filter}
+
+        return render(request, "cdi_masterlist/CDI_MASTERLIST.html", context)
 
 class MasterlistDownload_View(View):
 
@@ -235,7 +269,7 @@ class QAUpdates_View(View):
 
             qaupdates.append(instance_qa)
 
-        content = {'qaupdates': qaupdates}
+        context = {'qaupdates': qaupdates}
 
-        return render(request, "cdi_masterlist/qa_updates/QA_UPDATES.html", content)
+        return render(request, "cdi_masterlist/qa_updates/QA_UPDATES.html", context)
 
