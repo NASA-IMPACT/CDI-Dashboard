@@ -1,6 +1,7 @@
 import ast
 import io
 import json
+import openpyxl
 import pandas as pd
 import plotly
 import plotly.express as px
@@ -10,6 +11,7 @@ from django.http import HttpResponse, FileResponse
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.views import View
+from openpyxl.writer.excel import save_virtual_workbook
 from .models import Masterlist, CAPInstance, BrokenAPI, Retag, QAUpdates, NotInMasterlist
 
 from .filters import MasterlistFilter
@@ -241,17 +243,28 @@ class Retag_Download(View):
 
     def generate_xlsx(self, dataframe):
 
-        '''buffer = io.BytesIO()
-            workbook = xlsxwriter.Workbook(buffer)
-            worksheet = workbook.add_worksheet()
-            worksheet.write("dataframe")
-            workbook.close()
-            buffer.seek(0)'''
-
-        buffer = io.BytesIO()
+        buffer = io.BytesIO() # Set First Stream
 
         with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
             dataframe.to_excel(writer, sheet_name='Retag Request', index=False)
+
+        # Format Document
+        workbook = openpyxl.load_workbook(buffer)
+
+        worksheet = workbook.active
+
+        # set the width of each column
+        worksheet.column_dimensions['A'].width = 35
+        worksheet.column_dimensions['B'].width = 65
+        worksheet.column_dimensions['C'].width = 55
+        worksheet.column_dimensions['D'].width = 55
+
+        for row in worksheet.iter_rows():
+            for cell in row:      
+                cell.alignment = openpyxl.styles.Alignment(wrapText=True)
+      
+        # save the file
+        buffer = io.BytesIO(save_virtual_workbook(workbook)) # Update Stream w/ Formatting
 
         return buffer
 
