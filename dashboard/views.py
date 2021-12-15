@@ -1,11 +1,13 @@
 import ast
+import io
 import json
 import pandas as pd
 import plotly
 import plotly.express as px
 import requests
-from django.http import HttpResponse
-from django.shortcuts import render
+import xlsxwriter
+from django.http import HttpResponse, FileResponse
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.views import View
 from .models import Masterlist, CAPInstance, BrokenAPI, Retag, QAUpdates, NotInMasterlist
@@ -191,6 +193,67 @@ class Retag_View(View):
         context = {'date':date, 'retaglist':retag_datasets}
 
         return render(request, "retag/RETAG.html", context)
+
+class Retag_Download(View):
+
+    def get(self, request):
+
+        # Get Retag Datasets
+        date, retag_datasets_json = self.get_retag_request()
+        retag_df = pd.DataFrame(retag_datasets_json)
+
+        # Generate Excel File
+        buffer = self.generate_xlsx(retag_df)
+
+        buffer.seek(0)
+
+        string_date = date.strftime("%m-%d-%Y")
+        return FileResponse(buffer, as_attachment=True, filename='retag-request-{}.xlsx'.format(string_date))
+
+    def get_retag_request(self):
+
+        # Most Recent Cap Instance
+        capinstance_qs = CAPInstance.objects.values().order_by("date").reverse()[:1]
+        capinstance = list(capinstance_qs)[0] # Gets Dictionary of Most Recent Cap Instance
+        date = capinstance['date']
+        cap_id = capinstance['cap_id']
+
+
+        # Get Retag Datasets from instance ID
+        retag_qs = Retag.objects.filter(cap_id=cap_id)
+
+        # Get Masterlist Attributes
+        retag_datasets = []
+
+        for retag in retag_qs:
+            masterlist_obj = retag.datagov_ID
+
+            masterlist_dict = {
+                                'id': masterlist_obj.datagov_ID,
+                                'name': masterlist_obj.name,
+                                'catalog_url': masterlist_obj.catalog_url,
+                                'cdi_themes': masterlist_obj.cdi_themes,
+            }
+
+            retag_datasets.append(masterlist_dict)
+
+        return date, retag_datasets
+
+    def generate_xlsx(self, dataframe):
+
+        '''buffer = io.BytesIO()
+            workbook = xlsxwriter.Workbook(buffer)
+            worksheet = workbook.add_worksheet()
+            worksheet.write("dataframe")
+            workbook.close()
+            buffer.seek(0)'''
+
+        buffer = io.BytesIO()
+
+        with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
+            dataframe.to_excel(writer, sheet_name='Retag Request', index=False)
+
+        return buffer
 
 class ClimateCollection_View(View):
 
