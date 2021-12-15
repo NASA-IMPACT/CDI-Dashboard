@@ -6,33 +6,41 @@
 	<div class="container">
 		<div class="section1">
 			<div class="information">
-				<h1 style="width:75%; text-align:left">Climate Data Initiative (CDI)</h1><br>
-				<p style="width:75%;text-align:left">This is the main page of the CDI Dashboard and as such will be what
+				<h1>Climate Data Initiative (CDI)</h1>
+				<p>This is the main page of the CDI Dashboard and as such will be what
 					a user sees first when they navigate to the site. The purpose of this page is to provide users an
 					overview of the CDI as well as an overview of CAP results. The main page will have four major
 					elements along with the menu bar. The user can also navigate to other pages on the site using the
 					menu bar. </p>
+
 			</div>
 		</div>
 		<div class="section2">
 			<div class="information">
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<h1 style="width:75%;text-align:right"># in Climate Collection | {{ current_metrics.climate_collection_count }}</h1>
+				
+				<table class="metrics">
+					<tr>
+						<td># in Climate Collection </td>
+						<td>{{ current_metrics.climate_collection_count }}</td>
+					</tr>
 
-				<h1 style="width:75%;text-align:right"># in Masterlist | {{ current_metrics.masterlist_count }}</h1>
+					<tr></tr>
+				
+					<tr>
+						<td># in Masterlist </td>
+						<td>{{ current_metrics.masterlist_count }}</td>
+					</tr>
+				</table>
+					
 			</div>
 		</div>
 
 
 		<div class="section3">
-			<div style="padding:20px; width: 95%;height: 90%" class="information">
-				<div style="overflow-y: scroll">
+			<div class="information">
+				<div>
 					<table class="styled-table">
-						<caption>Warnings</caption>
+						<caption>CDI Analysis Platform Warnings</caption>
 
 						<th>Date</th>
 						<th>Total Warnings</th>
@@ -50,105 +58,21 @@
 			</div>
 		</div>
 		<div class="section4">
-			<div class="information" style="padding:10px;height:95%">
+			<div class="information">
 				<div class='chartstyle' id='chart'></div>
 			</div>
 		</div>
+		<div class="mobilespacer">&nbsp
+		</div>
 	</div>
 </center>
-<br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br><br>
 
 <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 <script type='text/javascript'>
-	var graphs = {{ graphJSON | safe}};
-	Plotly.plot('chart', graphs, {});
+	var graphs = {{ graphJSON | safe }};
+	Plotly.plot('chart', graphs);
 </script>
 
-
-
-<p>Dictionary all_metrics</p>
-
-<ul>
-	{% for item in all_metrics %}
-
-	<li> {{ item }} </li>
-
-	{% endfor %}
-</ul>
-
-<p>Dictionary current_metrics</p>
-
-<ul>
-	{% for item in current_metrics %}
-
-	<li> {{ item }} </li>
-
-	{% endfor %}
-</ul>
-
-<p>Dictionary total_warnings</p>
-
-<ul>
-	{% for item in total_warnings %}
-
-	<li> {{ item }} </li>
-
-	{% endfor %}
-</ul>
-
 {% endblock %}
+
 

@@ -21,11 +21,7 @@
         <a href="/" class="title">CDI Dashboard</a>
 
         <!--Creating Alert Icon with link-->
-        <a href="/warnings-instance" class="alert-icon">
-            <button type="button" class="alert-button">
-                <span class="material-icons">priority_high</span>
-            </button>
-        </a>
+
 
         <!--Creating Collapsible Menu Icon-->
         <input class="menu-button" type="checkbox" id="menu-button" />
@@ -33,36 +29,32 @@
 
         <!--Creating and Linking Menu Items-->
         <ul class="menu-items">
-            <li><a href="/">Home</a></li>
-            <li><a href="/charts">Metrics</a></li>
-            <li><a href="/warnings">Warnings</a></li>
-            <li><a href="/climate-collection">Climate Collection</a></li>
-            <li><a href="/cdi-masterlist">Masterlist</a></li>
-            <li><a href="/retag">Retag</a></li>
-            <li><a href="/warnings-instance">
+            <li><a href="/admin">
                     <button type="button" class="alert-button">
-                        <span class="material-icons">priority_high</span>
+                        <span class="material-icons">admin_panel_settings</span>
                     </button>
                 </a>
             </li>
+            <li><a href="/retag">Retag</a></li>
+            <li><a href="/cdi-masterlist">Masterlist</a></li>
+            <li><a href="/climate-collection">Climate Collection</a></li>
+            <li><a href="/warnings">Warnings</a></li>
+            <li><a href="/charts">Metrics</a></li>
+            <li><a href="/">Home</a></li>
         </ul>
     </navbar>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <div class="mobilespacer"></div>
 
 
 
     {% block content %}{% endblock %}
+
     <div class="footer">
-        <a class="footer_logo" href="https://www.nasa.gov/" target="_blank">
-            {% load static %}<img style="float:right;height:75px" src="{% static 'media/NASA_logo.png' %}"
-                alt="NASA Logo"></img>
+        <a href="https://www.nasa.gov/" target="_blank">
+            {% load static %}<img class="footer_logo" src="{% static 'media/NASA_logo.png' %}" alt="NASA Logo"></img>
         </a>
-        <a class="footer_logo" href="https://impact.earthdata.nasa.gov/" target="_blank">
-            {% load static %} <img style="float:right;height:75px" src="{% static 'media/IMPACT_logo.png' %}"
+        <a href="https://impact.earthdata.nasa.gov/" target="_blank">
+            {% load static %} <img class="footer_logo" src="{% static 'media/IMPACT_logo.png' %}"
                 alt="Impact Logo"></img>
         </a>
 
