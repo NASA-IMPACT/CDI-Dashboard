@@ -72,6 +72,87 @@ a {
   height: 10px
 }
 
+  .bluehyper{
+    color:#002554;
+    border-right:30px solid transparent;
+    text-decoration: underline;
+
+  }
+  
+
+.dropbtn {
+  background-color: #002554;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  
+}
+
+
+.dropbtn:hover {
+  background-color: #18355a;
+}
+
+
+.dropdown {
+  position: relative;
+  border-right:300px solid white;
+  border-bottom:1px solid white;
+  float:right;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  width: max-content;
+  box-shadow: 1px 8px 16px 1px rgba(0,0,0,0.2);
+  z-index: 1;
+  font-size:20px;
+  text-align:right;
+  padding:20px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+.dropdown-content button{
+  
+  border:none;
+  background-color:#002554;
+  width:max-content;
+  font-size: 20px;
+  padding:5px;
+  color:white;
+  cursor: pointer;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
+}
+
+.dropdown-content input[type=text]{
+  
+  border:none;
+  font-size: 20px;
+  padding:5px;
+  color:black;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
+}
+
+.dropdown-content select{
+  
+  border:none;
+  font-size: 20px;
+  padding:5px;
+  color:black;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
+}
+
+  /* Styling the Menu Bar and Collapsible Menu (i.e. navbar) */
+  
+
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -488,6 +569,57 @@ a {
     color: white;
   }
 
+    .table_header{
+      width:20%;
+      float:left;
+      border-left:100px solid white;
+      font-size: 100%;
+    }
+    .scrolling{
+      overflow-y:scroll;
+      height:800px;
+      width:90%;
+      
+    }
+    .masterlist-table { 
+      border-collapse: collapse;
+      font-size: 15px;
+      font-family: sans-serif;
+      width:100%;
+  
+    }
+    .masterlist-table thead tr {
+      background-color: #002554;
+      color: #ffffff;
+      text-align: left;
+      position: sticky;
+      top: 0;
+    }
+    
+    .masterlist-table th,
+    .masterlist-table td {
+        padding: 12px 15px;
+        text-align:center;
+    }
+    
+    .masterlist-table tbody tr {
+      border-bottom: 0px solid #dddddd;
+    }
+    
+    .masterlist-table tbody tr:nth-of-type(even) {
+      background-color: #f3f3f3;
+    }
+    .masterlist-table a {
+      color:black;
+      text-decoration: none;
+    }
+    
+  .left-title{
+    float:left;
+    padding:10px
+  }
+    
+
 }
 
 @media (min-width: 1700px) {
@@ -505,8 +637,8 @@ a {
     font-family: Arial, Helvetica, sans-serif;
     margin: 18px;
     table-layout: auto;
-
   }
+
 
   .metrics td:nth-child(1) {
     text-align: center;
@@ -538,4 +670,6 @@ a {
     border-top: 10px solid transparent;
 
   }
+
 }
+

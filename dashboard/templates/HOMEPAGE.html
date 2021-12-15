@@ -47,7 +47,7 @@
 
 						{% for item in total_warnings %}
 						<tr>
-							<td>{{ item.date }}</td>
+							<td><a href="/warnings/{{ item.cap_id }}">{{ item.date }}</a></td>
 							<td>{{ item.total_warnings }}</td>
 
 						</tr>
@@ -74,4 +74,5 @@
 </script>
 
 {% endblock %}
+
 
