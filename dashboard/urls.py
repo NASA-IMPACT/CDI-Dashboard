@@ -5,6 +5,7 @@ urlpatterns = [
     path("", Main_View.as_view(), name="main"),
     path("charts", Charts_View.as_view(), name="charts"),
     path("retag", Retag_View.as_view(), name="retag"),
+    path("retag-request-download", Retag_Download.as_view(), name="retag-download"),
     path("warnings", Warnings_View.as_view(), name="warnings"),
     path("warnings/<str:cap_id>", WarningsInstance_View.as_view(), name="warningsinstance"),
     path("climate-collection", ClimateCollection_View.as_view(), name="climatecollection"),
