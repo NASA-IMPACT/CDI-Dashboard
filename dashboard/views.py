@@ -9,6 +9,7 @@ import requests
 import xlsxwriter
 from django.http import HttpResponse, FileResponse
 from django.shortcuts import render, redirect
+from django.utils.encoding import smart_str
 from django.views.generic import TemplateView
 from django.views import View
 from openpyxl.writer.excel import save_virtual_workbook
@@ -322,7 +323,23 @@ class MasterlistDownload_View(View):
 
     def get(self, request):
 
-        return render(request, "base.html")
+        masterlist_qs = Masterlist.objects.values()
+        masterlist = list(masterlist_qs)
+
+        masterlist_json = json.dumps(masterlist, indent=4)
+
+        # Get Date
+        capinstance_qs = CAPInstance.objects.values().order_by("date").reverse()[:1]
+        capinstance = list(capinstance_qs)[0] # Gets Dictionary of Most Recent Cap Instance
+        date = capinstance['date']
+
+        string_date = date.strftime("%m-%d-%Y")
+        filename = "CDI_Masterlist_{}.json".format(string_date)
+
+        response = HttpResponse(masterlist_json, content_type = "application/force-download")
+        response['Content-Disposition'] = 'attachment; filename={}'.format(smart_str(filename))
+        return response
+        
 
 class QAUpdates_View(View):
 
