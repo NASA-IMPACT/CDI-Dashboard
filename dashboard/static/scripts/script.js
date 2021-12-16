@@ -9,6 +9,6 @@ function toggledropdown() {
         else {
           dropdown.style.display = 'block';
         }
-    
   }
+
 
