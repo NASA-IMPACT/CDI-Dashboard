@@ -30,9 +30,7 @@
 					<tbody>
 						{% for item in retaglist %}
 						<tr>
-							<td class="column_1_entry" onclick="window.location ='{{ item.catalog_url }}';">{{
-								item.title }}
-							</td>
+							<td class="column_1_entry" onclick="window.location ='{{ item.catalog_url }}';">{{item.title }}</td>
 							<td>{{ item.organization }}</td>
 							<td>{{ item.cdi_themes }}</td>
 							<td>{{ item.metadata_type }}</td>

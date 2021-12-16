@@ -92,7 +92,7 @@ a {
 
 .tableFixHead {
   overflow-y: auto;
-  height: 80vh;
+  height: 65vh;
   width: 100%;
   margin-bottom: 5vh
 }
@@ -269,6 +269,10 @@ a {
   font-weight: bold;
   padding: 20px;
   cursor: pointer;
+}
+.maptoggle:hover{
+  background-color: white;
+  color:black;
 }
 
 .metrics td:nth-child(2) {
@@ -674,7 +678,7 @@ a {
 
   .scrolling {
     overflow-y: scroll;
-    height: 800px;
+    height: 65vh;
     width: 90%;
 
   }
@@ -684,6 +688,7 @@ a {
     font-size: 15px;
     font-family: sans-serif;
     width: 100%;
+    
 
   }
 
