@@ -1,13 +1,18 @@
 import ast
+import io
 import json
+import openpyxl
 import pandas as pd
 import plotly
 import plotly.express as px
 import requests
-from django.http import HttpResponse
-from django.shortcuts import render
+import xlsxwriter
+from django.http import HttpResponse, FileResponse
+from django.shortcuts import render, redirect
+from django.utils.encoding import smart_str
 from django.views.generic import TemplateView
 from django.views import View
+from openpyxl.writer.excel import save_virtual_workbook
 from .models import Masterlist, CAPInstance, BrokenAPI, Retag, QAUpdates, NotInMasterlist
 import plotly.graph_objects as go
 from .filters import MasterlistFilter
@@ -254,6 +259,78 @@ class Retag_View(View):
 
         return render(request, "retag/RETAG.html", context)
 
+class Retag_Download(View):
+
+    def get(self, request):
+
+        # Get Retag Datasets
+        date, retag_datasets_json = self.get_retag_request()
+        retag_df = pd.DataFrame(retag_datasets_json)
+
+        # Generate Excel File
+        buffer = self.generate_xlsx(retag_df)
+
+        buffer.seek(0)
+
+        string_date = date.strftime("%m-%d-%Y")
+        return FileResponse(buffer, as_attachment=True, filename='retag-request-{}.xlsx'.format(string_date))
+
+    def get_retag_request(self):
+
+        # Most Recent Cap Instance
+        capinstance_qs = CAPInstance.objects.values().order_by("date").reverse()[:1]
+        capinstance = list(capinstance_qs)[0] # Gets Dictionary of Most Recent Cap Instance
+        date = capinstance['date']
+        cap_id = capinstance['cap_id']
+
+
+        # Get Retag Datasets from instance ID
+        retag_qs = Retag.objects.filter(cap_id=cap_id)
+
+        # Get Masterlist Attributes
+        retag_datasets = []
+
+        for retag in retag_qs:
+            masterlist_obj = retag.datagov_ID
+
+            masterlist_dict = {
+                                'id': masterlist_obj.datagov_ID,
+                                'name': masterlist_obj.name,
+                                'catalog_url': masterlist_obj.catalog_url,
+                                'cdi_themes': masterlist_obj.cdi_themes,
+            }
+
+            retag_datasets.append(masterlist_dict)
+
+        return date, retag_datasets
+
+    def generate_xlsx(self, dataframe):
+
+        buffer = io.BytesIO() # Set First Stream
+
+        with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
+            dataframe.to_excel(writer, sheet_name='Retag Request', index=False)
+
+        # Format Document
+        workbook = openpyxl.load_workbook(buffer)
+
+        worksheet = workbook.active
+
+        # set the width of each column
+        worksheet.column_dimensions['A'].width = 35
+        worksheet.column_dimensions['B'].width = 65
+        worksheet.column_dimensions['C'].width = 55
+        worksheet.column_dimensions['D'].width = 55
+
+        for row in worksheet.iter_rows():
+            for cell in row:      
+                cell.alignment = openpyxl.styles.Alignment(wrapText=True)
+      
+        # save the file
+        buffer = io.BytesIO(save_virtual_workbook(workbook)) # Update Stream w/ Formatting
+
+        return buffer
+
 class ClimateCollection_View(View):
 
     def get(self, request):
@@ -308,7 +385,23 @@ class MasterlistDownload_View(View):
 
     def get(self, request):
 
-        return render(request, "base.html")
+        masterlist_qs = Masterlist.objects.values()
+        masterlist = list(masterlist_qs)
+
+        masterlist_json = json.dumps(masterlist, indent=4)
+
+        # Get Date
+        capinstance_qs = CAPInstance.objects.values().order_by("date").reverse()[:1]
+        capinstance = list(capinstance_qs)[0] # Gets Dictionary of Most Recent Cap Instance
+        date = capinstance['date']
+
+        string_date = date.strftime("%m-%d-%Y")
+        filename = "CDI_Masterlist_{}.json".format(string_date)
+
+        response = HttpResponse(masterlist_json, content_type = "application/force-download")
+        response['Content-Disposition'] = 'attachment; filename={}'.format(smart_str(filename))
+        return response
+        
 
 class QAUpdates_View(View):
 
