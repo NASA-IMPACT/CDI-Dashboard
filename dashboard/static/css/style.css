@@ -215,6 +215,10 @@ a {
 
 }
 
+.column_1_entry {
+  cursor: pointer;
+}
+
 /* Styling the Menu Bar and Collapsible Menu (i.e. navbar) */
 
 
