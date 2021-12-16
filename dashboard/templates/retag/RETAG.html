@@ -12,7 +12,7 @@
 		<div class="divshrink">
 			<div class="table-header">
 				<label class="pagetitle">Retag Datasets from {{ date }}</label>
-				<a class="bluehyperfloatright" href="/retag_request_download">Download Excel</a>
+				<a class="bluehyperfloatright" href="/retag-request-download">Download Excel</a>
 
 			</div>
 			<br>
@@ -30,7 +30,8 @@
 					<tbody>
 						{% for item in retaglist %}
 						<tr>
-							<td class="column_1_entry" onclick="window.location ='{{ item.catalog_url }}';">{{item.title }}</td>
+							<td class="column_1_entry" onclick="window.location ='{{ item.catalog_url }}';">
+								{{item.title}}</td>
 							<td>{{ item.organization }}</td>
 							<td>{{ item.cdi_themes }}</td>
 							<td>{{ item.metadata_type }}</td>

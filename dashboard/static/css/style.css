@@ -33,7 +33,7 @@ a {
 .styled-table {
   border-collapse: collapse;
   margin: 0px 0;
-  font-size: 10px;
+  font-size: 15px;
   font-family: sans-serif;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   width: 90%;
@@ -45,6 +45,7 @@ a {
   overflow-y: scroll;
   background-color: white;
   padding: 30px;
+  height: 60vh;
 }
 
 .qa-updates-list {
@@ -81,13 +82,13 @@ a {
 .styled-table caption {
   display: table-caption;
   text-align: center;
-  padding: 10px;
-  font-size: 10px;
+  padding: 20px 30px;
+  font-size: 20px;
   font-family: sans-serif;
   font-weight: bold;
   background-color: var(--impact-color);
   color: white;
-  height: 10px
+  height: 10px;
 }
 
 .tableFixHead {
@@ -161,10 +162,8 @@ a {
 
 
 .dropdown {
-  border-right: 300px solid transparent;
   float: right;
-
-
+  border-top:20px solid transparent;
 }
 
 
@@ -172,7 +171,7 @@ a {
   display: none;
   position: absolute;
   background-color: #e0e0e0;
-  ;
+  
   width: max-content;
   box-shadow: 1px 8px 16px 1px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -257,12 +256,14 @@ a {
   position: fixed;
 }
 
+
+
 .maptoggle {
 
   width: max-content;
   border: none;
   border-radius: 20px;
-  background-color: black;
+  background-color: #56b4d1;
   color: white;
   font-size: 1vw;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -671,7 +672,6 @@ a {
   .table_header {
     width: 20%;
     float: left;
-    border-left: 100px solid transparent;
     font-size: 100%;
 
   }

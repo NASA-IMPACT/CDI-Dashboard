@@ -21,8 +21,9 @@
 						</thead>
 						{% for item in brokenlist %}
 						<tr>
-							<td class="column_1_entry" onclick="window.location ='{{ item.catalog_url }}';">{{
-								item.title }}</td>
+							<td class="column_1_entry" onclick="window.location ='{{ item.catalog_url }}';">
+								{{ item.title }}
+							</td>
 						</tr>
 						{% endfor %}
 					</table>
@@ -34,8 +35,9 @@
 						</tr>
 						{% for item in retaglist %}
 						<tr>
-							<td class="column_1_entry" onclick="window.location ='{{ item.catalog_url }}';">{{
-								item.title }}</td>
+							<td class="column_1_entry" onclick="window.location ='{{ item.catalog_url }}';">
+								{{ item.title }}
+							</td>
 						</tr>
 						{% endfor %}
 					</table>
@@ -47,8 +49,9 @@
 						</tr>
 						{% for item in nimlist %}
 						<tr>
-							<td class="column_1_entry" onclick="window.location ='{{ item.catalog_url }}';">{{
-								item.title }}</td>
+							<td class="column_1_entry" onclick="window.location ='{{ item.catalog_url }}';">
+								{{ item.title }}
+							</td>
 						</tr>
 						{% endfor %}
 					</table>
