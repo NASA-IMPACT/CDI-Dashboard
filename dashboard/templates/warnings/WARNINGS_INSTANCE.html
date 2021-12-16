@@ -1,49 +1,61 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% load static %}<link rel="stylesheet" href="{%  static  'css/warnings_instance_style.css'  %}">
+{% load static %}
+<link rel="stylesheet" href="{%  static  'css/warnings_instance_style.css'  %}">
+
 <body>
-	<label>Warnings: {{ date }}</label>
-	<div class="row">
-		<div class="column">
-			<table>
-				<thead>
-				<tr>
-					<th>Broken API Datasets</th>
-				</tr>
-			</thead>
-				{% for item in brokenlist %}
-					<tr>
-						<td class="column_1_entry" onclick="window.location ='{{ item.catalog_url }}';">{{ item.title }}</td>
-					</tr>
-				{% endfor %}
-			</table>
+	<center>
+
+		<div class="divshrink">
+			<h1 class="pagetitle">Warnings: {{ date }}</h1>
+			<div class="mobilespacer"></div>
+
+			<div class="row">
+				<div class="column">
+					<table>
+						<thead>
+							<tr>
+								<th>Broken API Datasets</th>
+							</tr>
+						</thead>
+						{% for item in brokenlist %}
+						<tr>
+							<td class="column_1_entry" onclick="window.location ='{{ item.catalog_url }}';">{{
+								item.title }}</td>
+						</tr>
+						{% endfor %}
+					</table>
+				</div>
+				<div class="column">
+					<table>
+						<tr>
+							<th>Retag Datasets</th>
+						</tr>
+						{% for item in retaglist %}
+						<tr>
+							<td class="column_1_entry" onclick="window.location ='{{ item.catalog_url }}';">{{
+								item.title }}</td>
+						</tr>
+						{% endfor %}
+					</table>
+				</div>
+				<div class="column">
+					<table>
+						<tr>
+							<th>Datasets Not in CDI Masterlist</th>
+						</tr>
+						{% for item in nimlist %}
+						<tr>
+							<td class="column_1_entry" onclick="window.location ='{{ item.catalog_url }}';">{{
+								item.title }}</td>
+						</tr>
+						{% endfor %}
+					</table>
+				</div>
+			</div>
 		</div>
-		<div class="column">
-			<table>
-				<tr>
-					<th>Retag Datasets</th>
-				</tr>
-				{% for item in retaglist %}
-					<tr>
-						<td class="column_1_entry" onclick="window.location ='{{ item.catalog_url }}';">{{ item.title }}</td>
-					</tr>
-				{% endfor %}
-			</table>
-		</div>
-		<div class="column">
-			<table>
-				<tr>
-					<th>Datasets Not in CDI Masterlist</th>
-				</tr>
-				{% for item in nimlist %}
-					<tr>
-						<td class="column_1_entry" onclick="window.location ='{{ item.catalog_url }}';">{{ item.title }}</td>
-					</tr>
-				{% endfor %}
-			</table>
-		</div>
-	</div>
+	</center>
 </body>
 
 {% endblock %}
