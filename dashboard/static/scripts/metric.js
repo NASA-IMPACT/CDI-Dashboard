@@ -4,28 +4,28 @@ var geo = document.getElementById("geo");
 var tag = document.getElementById("tag");
 
 function showagency() {
-    agency.style["visibility"] = "visible";
-    theme.style["visibility"] = "hidden";
-    geo.style["visibility"] = "hidden";
-    tag.style["visibility"] = "hidden";
+    agency.style["display"] = "inline";
+    theme.style["display"] = "none";
+    geo.style["display"] = "none";
+    tag.style["display"] = "none";
 }
 function showtheme() {
-    agency.style["visibility"] = "hidden";
-    theme.style["visibility"] = "visible";
-    geo.style["visibility"] = "hidden";
-    tag.style["visibility"] = "hidden";
+    agency.style["display"] = "none";
+    theme.style["display"] = "inline";
+    geo.style["display"] = "none";
+    tag.style["display"] = "none";
 }
 function showgeo() {
-    agency.style["visibility"] = "hidden";
-    theme.style["visibility"] = "hidden";
-    geo.style["visibility"] = "visible";
-    tag.style["visibility"] = "hidden";
+    agency.style["display"] = "none";
+    theme.style["display"] = "none";
+    geo.style["display"] = "inline";
+    tag.style["display"] = "none";
 }
 function showtag() {
-    agency.style["visibility"] = "hidden";
-    theme.style["visibility"] = "hidden";
-    geo.style["visibility"] = "hidden";
-    tag.style["visibility"] = "visible";
+    agency.style["display"] = "none";
+    theme.style["display"] = "none";
+    geo.style["display"] = "none";
+    tag.style["display"] = "inline";
 }
 
 window.onbeforeunload = showagency()

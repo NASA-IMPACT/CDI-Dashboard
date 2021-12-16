@@ -252,7 +252,7 @@ a {
 .mapsection {
   width: 50vw;
   height: 50vh;
-  visibility: hidden;
+  display: none;
   padding: 20px;
   position: fixed;
 }
