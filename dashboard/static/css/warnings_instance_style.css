@@ -47,8 +47,15 @@
   th {
     position: sticky;
     top: 0;
-    background: #eee;
+    background: #002554;
     z-index: 1;
+    color: white;
+
+  }
+
+  tr {
+background:white;
+
   }
 
   .column_1_entry {

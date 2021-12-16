@@ -1,52 +1,33 @@
 /* Styling for the Retag Page */
 
-.tableFixHead {
-  overflow-y: auto;
-  height: 80vh;
-  padding-left:20px;
-  padding-right:20px;
-  margin-bottom: 5vh;
-}
-.tableFixHead thead th {
-  position: sticky;
-  top: 0;
-  background: #eee;
-  overflow: hidden;
-  z-index: 1;
-}
-table {
-  border: 0.5px solid black;
-  border-spacing: 0;
-  width: 100%;
-}
-th, 
-td {
-  padding: 8px 16px;
-  border: 0.5px solid black;
-  color: black;
-  text-align: center;
-}
-.table-header{
+
+
+.table-header {
   display: flex;
   justify-content: space-between;
   padding-left: 20px;
-  padding-right:20px;
-  padding-top:1vh;
+  padding-right: 20px;
+  padding-top: 1vh;
 }
+
 .table-header-title {
-  float:left;
+  float: left;
   font-weight: bold;
   font-size: 30px;
   color: black;
 }
+
 .table-header-download {
   color: black;
   float: right;
   margin-top: auto;
 }
+
 .column_1_title {
   text-align: left;
+  cursor: pointer;
 }
+
 .column_1_entry {
   text-align: left;
   position: relative;

@@ -22,6 +22,7 @@ a {
 /* Styling the Menu Bar and Collapsible Menu (i.e. navbar) */
 
 
+
 .footer_logo {
   padding: 10px;
   float: right;
@@ -37,6 +38,23 @@ a {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   width: 90%;
   overflow-y: scroll;
+}
+
+.scrollbox {
+  width: 100%;
+  overflow-y: scroll;
+  background-color: white;
+  padding: 30px;
+}
+
+.qa-updates-list {
+  text-align: left;
+
+
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .styled-table thead tr {
@@ -72,13 +90,58 @@ a {
   height: 10px
 }
 
-  .bluehyper{
-    color:#002554;
-    border-right:30px solid transparent;
-    text-decoration: underline;
+.tableFixHead {
+  overflow-y: auto;
+  height: 80vh;
+  width: 100%;
+  margin-bottom: 5vh
+}
 
-  }
-  
+.divshrink {
+  width: 90%;
+}
+
+.bluehyper {
+  color: #002554;
+  border-right: 30px solid transparent;
+  text-decoration: underline;
+
+}
+
+
+.bluehyperfloatright {
+  color: white;
+  float: right;
+  text-decoration: underline;
+  font-weight: 900;
+  background-color: rgba(104, 103, 103, 0.7);
+  border-radius: 10px;
+  padding: 10px;
+
+}
+
+.whitehyper {
+  color: white;
+  text-decoration: underline;
+  font-weight: 300;
+  background-color: rgba(104, 103, 103, 0.7);
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid transparent;
+
+}
+
+.pagetitle {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 30px;
+  color: white;
+  background-color: rgba(104, 103, 103, 0.7);
+  border-radius: 10px;
+  padding: 10px;
+  float: left;
+  margin-bottom: 1vh;
+
+}
 
 .dropbtn {
   background-color: #002554;
@@ -87,7 +150,8 @@ a {
   font-size: 16px;
   border: none;
   cursor: pointer;
-  
+
+
 }
 
 
@@ -97,61 +161,63 @@ a {
 
 
 .dropdown {
-  position: relative;
-  border-right:300px solid white;
-  border-bottom:1px solid white;
-  float:right;
+  border-right: 300px solid transparent;
+  float: right;
+
+
 }
 
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: #e0e0e0;
+  ;
   width: max-content;
-  box-shadow: 1px 8px 16px 1px rgba(0,0,0,0.2);
+  box-shadow: 1px 8px 16px 1px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  font-size:20px;
-  text-align:right;
-  padding:20px;
+  font-size: 20px;
+  text-align: right;
+  padding: 20px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 }
-.dropdown-content button{
-  
-  border:none;
-  background-color:#002554;
-  width:max-content;
+
+.dropdown-content button {
+
+  border: none;
+  background-color: #002554;
+  width: max-content;
   font-size: 20px;
-  padding:5px;
-  color:white;
+  padding: 5px;
+  color: white;
   cursor: pointer;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  
+
 }
 
-.dropdown-content input[type=text]{
-  
-  border:none;
+.dropdown-content input[type=text] {
+
+  border: none;
   font-size: 20px;
-  padding:5px;
-  color:black;
+  padding: 5px;
+  color: black;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  
+
 }
 
-.dropdown-content select{
-  
-  border:none;
+.dropdown-content select {
+
+  border: none;
   font-size: 20px;
-  padding:5px;
-  color:black;
+  padding: 5px;
+  color: black;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  
+
 }
 
-  /* Styling the Menu Bar and Collapsible Menu (i.e. navbar) */
-  
+/* Styling the Menu Bar and Collapsible Menu (i.e. navbar) */
+
 
 .container {
   display: flex;
@@ -182,12 +248,12 @@ a {
   font-size: 3vw;
   height: 50%
 }
-.mapsection {
-	width:650px;
-	height:500px;
-	
-	padding:20px
 
+.mapsection {
+  width: 650px;
+  height: 500px;
+
+  padding: 20px
 }
 
 .metrics td:nth-child(2) {
@@ -207,6 +273,13 @@ a {
   height: 40%;
   padding: 20px
 }
+
+.built-in-form {
+  background-color: white;
+
+}
+
+
 
 
 .information {
@@ -576,65 +649,79 @@ a {
     color: white;
   }
 
-    .table_header{
-      width:20%;
-      float:left;
-      border-left:100px solid white;
-      font-size: 100%;
-    }
-    .scrolling{
-      overflow-y:scroll;
-      height:800px;
-      width:90%;
-      
-    }
-    .masterlist-table { 
-      border-collapse: collapse;
-      font-size: 15px;
-      font-family: sans-serif;
-      width:100%;
-  
-    }
-    .masterlist-table thead tr {
-      background-color: #002554;
-      color: #ffffff;
-      text-align: left;
-      position: sticky;
-      top: 0;
-    }
-    
-    .masterlist-table th,
-    .masterlist-table td {
-        padding: 12px 15px;
-        text-align:center;
-    }
-    
-    .masterlist-table tbody tr {
-      border-bottom: 0px solid #dddddd;
-    }
-    
-    .masterlist-table tbody tr:nth-of-type(even) {
-      background-color: #f3f3f3;
-    }
-    .masterlist-table a {
-      color:black;
-      text-decoration: none;
-    }
-    
-    .mapsection {
-      width:40%;
-      height:275px;
-    
-      padding:20px
-    
-    }
+  .table_header {
+    width: 20%;
+    float: left;
+    border-left: 100px solid transparent;
+    font-size: 100%;
 
-
-  .left-title{
-    float:left;
-    padding:10px
   }
-    
+
+  .scrolling {
+    overflow-y: scroll;
+    height: 800px;
+    width: 90%;
+
+  }
+
+  .masterlist-table {
+    border-collapse: collapse;
+    font-size: 15px;
+    font-family: sans-serif;
+    width: 100%;
+
+  }
+
+  .masterlist-table thead tr {
+    background-color: #002554;
+    color: #ffffff;
+    text-align: center;
+    position: sticky;
+    top: 0;
+  }
+
+  .masterlist-table thead th {
+    background-color: #002554;
+    color: #ffffff;
+    text-align: center;
+    position: sticky;
+    top: 0;
+  }
+
+
+  .masterlist-table th,
+  .masterlist-table td {
+    padding: 12px 15px;
+    text-align: center;
+  }
+
+  .masterlist-table tbody tr {
+    border-bottom: 0px solid #dddddd;
+    background-color: #e0e0e0;
+  }
+
+  .masterlist-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+
+  .masterlist-table a {
+    color: black;
+    text-decoration: none;
+  }
+
+  .mapsection {
+    width: 40%;
+    height: 275px;
+
+    padding: 20px
+  }
+
+
+  .left-title {
+    float: left;
+    padding: 10px
+  }
+
 
 }
 
@@ -688,4 +775,3 @@ a {
   }
 
 }
-

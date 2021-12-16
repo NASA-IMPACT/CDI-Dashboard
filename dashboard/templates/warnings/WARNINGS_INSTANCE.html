@@ -7,9 +7,11 @@
 	<div class="row">
 		<div class="column">
 			<table>
+				<thead>
 				<tr>
 					<th>Broken API Datasets</th>
 				</tr>
+			</thead>
 				{% for item in brokenlist %}
 					<tr>
 						<td class="column_1_entry" onclick="window.location ='{{ item.catalog_url }}';">{{ item.title }}</td>

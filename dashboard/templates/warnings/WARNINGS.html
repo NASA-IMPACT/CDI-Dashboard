@@ -4,33 +4,39 @@
 
 {% block content %}
 
-{% load static %}<link rel="stylesheet" href="{%  static  'css/warnings_style.css'  %}">
+{% load static %}
+<link rel="stylesheet" href="{%  static  'css/warnings_style.css'  %}">
 
 <body>
-  <div class="tableFixHead">
-    <table>
-      <caption>Climate Collection Warnings</caption>
-        <thead>
-          <tr>
-            <th>Date/Time</th>
-            <th>Broken API URLs</th>
-            <th>Lost Climate Tags</th>
-            <th>Not in Masterlist</th>
-            <th>Total Warnings</th>
-          </tr>
-      </thead>
-    <tbody>
-      {% for item in all_warnings %}
-      <tr>
-      <td class="warnings_instance" onclick="window.location = '/warnings/{{ item.cap_id }}';">{{ item.date }}</td>
-      <td>{{ item.broken_urls }}</td>
-      <td>{{ item.lost_climate_tag }}</td>
-      <td>{{ item.not_in_masterlist }}</td>
-      <td>{{ item.total_warnings }}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-    </table>
-  </div>
+  <center>
+    <div class="divshrink">
+      <div class="tableFixHead">
+        <label class="pagetitle">Climate Collection Warnings</label>
+        <table class="masterlist-table">
+          <thead>
+            <tr>
+              <th>Date/Time</th>
+              <th>Broken API URLs</th>
+              <th>Lost Climate Tags</th>
+              <th>Not in Masterlist</th>
+              <th>Total Warnings</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in all_warnings %}
+            <tr>
+              <td class="warnings_instance" onclick="window.location = '/warnings/{{ item.cap_id }}';">{{ item.date }}
+              </td>
+              <td>{{ item.broken_urls }}</td>
+              <td>{{ item.lost_climate_tag }}</td>
+              <td>{{ item.not_in_masterlist }}</td>
+              <td>{{ item.total_warnings }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </center>
 </body>
 {% endblock %}
