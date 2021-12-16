@@ -33,7 +33,7 @@ class Main_View(View):
         current_metrics = list(current_metrics_qs)[0]
         
         # Total Warnings
-        total_warnings_qs = CAPInstance.objects.values("cap_id", "date", "total_warnings").order_by("date").reverse()[:6]
+        total_warnings_qs = CAPInstance.objects.values("cap_id", "date", "total_warnings").order_by("date").reverse()[:5]
         total_warnings = list(total_warnings_qs)
         
         graphJSON = self.generate_timeseries_chart(all_metrics)
