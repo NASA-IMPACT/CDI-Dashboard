@@ -26,6 +26,6 @@ function showtag() {
     theme.style["visibility"] = "hidden";
     geo.style["visibility"] = "hidden";
     tag.style["visibility"] = "visible";
-}  
+}
 
 window.onbeforeunload = showagency()

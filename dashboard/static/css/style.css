@@ -251,23 +251,24 @@ a {
 
 .mapsection {
   width: 50vw;
-height: 50vh;
-visibility:hidden;
+  height: 50vh;
+  visibility: hidden;
   padding: 20px;
-  position:fixed;
+  position: fixed;
 }
-.maptoggle{
 
-  width:max-content;
-  border:none;
+.maptoggle {
+
+  width: max-content;
+  border: none;
   border-radius: 20px;
   background-color: black;
   color: white;
   font-size: 1vw;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-weight:bold;
-  padding:20px;
-  cursor:pointer;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+  padding: 20px;
+  cursor: pointer;
 }
 
 .metrics td:nth-child(2) {
