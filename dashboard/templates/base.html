@@ -48,6 +48,9 @@
     {% block content %}{% endblock %}
 
     <div class="footer">
+        <a href="https://github.com/NASA-IMPACT/dcd-CAP" target="_blank">
+            {% load static %}<img class="footer_logo_left" src="{% static 'media/CAPLogo.png' %}" alt="CAP Logo"></img>
+        </a>
         <a href="https://www.nasa.gov/" target="_blank">
             {% load static %}<img class="footer_logo" src="{% static 'media/NASA_logo.png' %}" alt="NASA Logo"></img>
         </a>

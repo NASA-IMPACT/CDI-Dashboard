@@ -33,6 +33,13 @@ a {
   height: 70px
 }
 
+.footer_logo_left {
+  padding: 10px;
+  float: left;
+  height: 70px;
+  border-left: 15px solid transparent;
+}
+
 
 .styled-table {
   border-collapse: collapse;
