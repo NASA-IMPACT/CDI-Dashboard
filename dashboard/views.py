@@ -44,6 +44,10 @@ class Main_View(View):
 
     def generate_timeseries_chart(self, all_metrics):
 
+        # Filter All Metrics to last 7 Runs
+        all_metrics.reverse()
+        all_metrics = all_metrics[:30]
+
         # Generatig Timeseries
         timeseries_df=pd.DataFrame({})
         for item in all_metrics:
