@@ -14,7 +14,7 @@
     },
     {
         "cdi_id": 2,
-        "name": "POWER!!!",
+        "name": "access-to-jobs-and-workers-via-transit-download",
         "title": "Access to Jobs and Workers via Transit - Download",
         "organization": "epa-gov",
         "catalog_url": "https://catalog.data.gov/dataset/access-to-jobs-and-workers-via-transit-download",
@@ -66,7 +66,7 @@
     },
     {
         "cdi_id": 6,
-        "name": "a-little-house-on-the-prairie",
+        "name": "a-global-database-of-gas-fluxes-from-soils-after-rewetting-or-thawing-version-1-0",
         "title": "Little house on the prairie",
         "organization": "nasa-gov",
         "catalog_url": "https://catalog.data.gov/dataset/a-global-database-of-gas-fluxes-from-soils-after-rewetting-or-thawing-version-1-0",
@@ -154,31 +154,5 @@
         "geoplatform_id": "85806afab89d6f1caf48eea8a27e0161",
         "datagov_ID": "unavailable",
         "status": "Not Active"
-    },
-    {
-        "cdi_id": 42,
-        "name": "california-ocean-uses-atlas",
-        "title": "California Ocean Uses Atlas",
-        "organization": "noaa-gov",
-        "catalog_url": "https://catalog.data.gov/dataset/california-ocean-uses-atlas",
-        "api_url": "https://catalog.data.gov/api/3/action/package_show?id=b87fa4ac-f76d-4094-bffb-3212f45cfa48",
-        "cdi_themes": "Ecosystem Vulnerability; Land Cover and Land Use",
-        "metadata_type": "geospatial",
-        "geoplatform_id": "e2e7c780b05075dd6ca3fc2415cb49dc",
-        "status": "Active",
-        "datagov_ID": "b87fa4ac-f76d-4094-bffb-3212f45cfa48"
-    },
-    {
-        "cdi_id": 54,
-        "name": "climate-forecast-system-reforecast-cfsr-for-1981-to-2011",
-        "title": "Climate Forecast System Reforecast (CFSR), for 1981 to 2011",
-        "organization": "noaa-gov",
-        "catalog_url": "https://catalog.data.gov/dataset/climate-forecast-system-reforecast-cfsr-for-1981-to-2011",
-        "api_url": "https://catalog.data.gov/api/3/action/package_show?id=db243c1f-5dcd-4aff-83c3-54bbaaaa83a3",
-        "cdi_themes": "Arctic Weather and Extreme Events; Arctic",
-        "metadata_type": "geospatial",
-        "geoplatform_id": "f06b7d48d39505a747aa8e654e404cba",
-        "status": "Active",
-        "datagov_ID": "db243c1f-5dcd-4aff-83c3-54bbaaaa83a3"
     }
 ]

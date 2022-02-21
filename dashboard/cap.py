@@ -1,5 +1,5 @@
 import ast
-from CAP import CAP
+from cap_package.CAP import CAP
 
 if __name__ == '__main__':
     from models import Masterlist, CAPInstance, BrokenAPI, Retag, QAUpdates, NotInMasterlist

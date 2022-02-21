@@ -1,14 +1,14 @@
 import setuptools
 from distutils.util import convert_path
 
-version_path = convert_path('CAP/version.txt')
+version_path = convert_path('cap_package/CAP/version.txt')
 with open(version_path) as version_file:
     __version__ = version_file.read().strip()
 
-with open("README.md", "r", encoding="utf-8") as readme_file:
+with open("cap_package/README.md", "r", encoding="utf-8") as readme_file:
     long_description = readme_file.read()
 
-with open("requirements.txt", "r", encoding="utf-8") as requirement_file:
+with open("cap_package/requirements.txt", "r", encoding="utf-8") as requirement_file:
     requirements = requirement_file.readlines()
 
 
