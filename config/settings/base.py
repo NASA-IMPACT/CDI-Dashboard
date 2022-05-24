@@ -40,18 +40,21 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 # DATABASES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
+# name cap-dashboard
+
+DATABASE_INSTANCE = "IMPACT"  # IMPACT or LOCAL
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cap',
-        'USER': 'postgres',
-        'PASSWORD': 'Pa55w0rd',
-        'HOST': 'localhost',
-        'PORT': '5432',
+    "default": {
+        "ENGINE": env(f"{DATABASE_INSTANCE}_ENGINE"),
+        "NAME": env(f"{DATABASE_INSTANCE}_NAME"),
+        "USER": env(f"{DATABASE_INSTANCE}_USER"),
+        "PASSWORD": env(f"{DATABASE_INSTANCE}_PASSWORD"),
+        "HOST": env(f"{DATABASE_INSTANCE}_HOST"),
+        "PORT": env(f"{DATABASE_INSTANCE}_PORT"),
     },
 }
-DATABASES['default']['ATOMIC_REQUESTS'] = True
+DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 # URLS
 # ------------------------------------------------------------------------------
@@ -73,7 +76,7 @@ DJANGO_APPS = [
     "django.contrib.admin",
     "django.forms",
     "django_crontab",
-    "django_filters"
+    "django_filters",
 ]
 THIRD_PARTY_APPS = [
     "crispy_forms",
@@ -243,7 +246,7 @@ MANAGERS = ADMINS
 # https://docs.djangoproject.com/en/dev/ref/settings/#logging
 # See https://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
-'''LOGGING = {
+"""LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
     "formatters": {
@@ -260,30 +263,28 @@ MANAGERS = ADMINS
         }
     },
     "root": {"level": "INFO", "handlers": ["console"]},
-}'''
+}"""
 LOGGING = {
-    'version': 1,
-    'filters': {
-        'require_debug_true': {
-            '()': 'django.utils.log.RequireDebugTrue',
+    "version": 1,
+    "filters": {
+        "require_debug_true": {
+            "()": "django.utils.log.RequireDebugTrue",
         }
     },
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'filters': ['require_debug_true'],
-            'class': 'logging.StreamHandler',
+    "handlers": {
+        "console": {
+            "level": "DEBUG",
+            "filters": ["require_debug_true"],
+            "class": "logging.StreamHandler",
         }
     },
-    'loggers': {
-        'django.db.backends': {
-            'level': 'DEBUG',
-            'handlers': ['console'],
+    "loggers": {
+        "django.db.backends": {
+            "level": "DEBUG",
+            "handlers": ["console"],
         }
-    }
+    },
 }
-
-
 
 
 # django-allauth
@@ -305,8 +306,6 @@ SOCIALACCOUNT_ADAPTER = "cap.users.adapters.SocialAccountAdapter"
 # ------------------------------------------------------------------------------
 
 # CRONTABS
-CRONJOBS = [
-    ('0 9 * * *', 'dashboard.cap.run_cap')
-]
+CRONJOBS = [("0 9 * * *", "dashboard.cap.run_cap")]
 
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = "none"
