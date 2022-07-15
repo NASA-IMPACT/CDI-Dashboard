@@ -44,7 +44,7 @@ def run_cap():
 
     retag_entries = add_Retags(all_metrics, cap_instance)
     broken_entries = add_BrokenAPI(all_metrics, cap_instance)
-    nim_entries = add_NotInMasterlist(all_metrics, cap_instance)
+    # nim_entries = add_NotInMasterlist(all_metrics, cap_instance)
     qa_entries = add_QAUpdates(all_metrics, cap_instance)
 
     ## Update Masterlist on QA Updates ##

@@ -42,7 +42,7 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 # name cap-dashboard
 
-DATABASE_INSTANCE = "IMPACT"  # IMPACT or LOCAL
+DATABASE_INSTANCE = "LOCAL"  # IMPACT or LOCAL
 
 DATABASES = {
     "default": {
