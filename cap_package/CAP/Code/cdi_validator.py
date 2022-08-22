@@ -77,8 +77,13 @@ def Extra_Data_Gov(masterlist_json, date):
 	not_in_master_full = pd.DataFrame({}) # Create empty dataframe
 
 	# Call Full Climate Collection (CC) API
-	api_call = requests.get('https://catalog.data.gov/api/3/action/package_search?fq=groups:climate5434&rows=2000').json()
-	data_gov_id_df = (pd.json_normalize(api_call['result']['results'])) # Create a Dataframe of all Data.gov IDs in Data.gov CC
+	
+	try:
+		api_call = requests.get('https://catalog.data.gov/api/3/action/package_search?fq=groups:climate5434&rows=2000').json()
+		data_gov_id_df = (pd.json_normalize(api_call['result']['results'])) # Create a Dataframe of all Data.gov IDs in Data.gov CC
+	except:
+		return [], pd.DataFrame({})
+
 	climate_collection=data_gov_id_df
 	# Set up list of all CDI Masterlist IDs
 	masterlist_id_list = (pd.json_normalize(masterlist_json)['datagov_ID']).tolist()

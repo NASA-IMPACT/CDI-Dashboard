@@ -43,12 +43,12 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cap',
-        'USER': 'postgres',
-        'PASSWORD': 'Pa55w0rd',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': env("ENGINE"),
+        'NAME': env("AWS_DB_NAME"),
+        'USER': env("AWS_DB_USER"),
+        'PASSWORD': env("AWS_DB_PASSWORD"),
+        'HOST': env("AWS_DB_HOST"),
+        'PORT': env("AWS_DB_PORT"),
     },
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
