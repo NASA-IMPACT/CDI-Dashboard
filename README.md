@@ -24,6 +24,14 @@ If using the NSSTC network, use Pulse VPN to get on the main campus network. (ht
 
 Run cap from the django shell by entering the command
 
+`python3 manage.py makemigrations`
+
+followed by
+
+`python3 manage.py shell`
+
+followed by
+
 `from dashboard.cap import *`
 
 followed by
@@ -48,4 +56,4 @@ Start the server
 
 `python3 manage.py runserver`
 
-Navigate to the admin console by clickcing on the shield in the upper right-hand corner and login with the superuser role
+Navigate to the admin console by clicking on the shield in the upper right-hand corner and login with the superuser role
