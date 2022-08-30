@@ -1,1 +1,58 @@
 {% extends "base.html" %}
+
+{% block content %}
+<center>
+    <button class="maptoggle" onclick="showagency()">
+        Agencies
+    </button>
+    <button class="maptoggle" onclick="showtheme()">
+        Themes
+    </button>
+    <button class="maptoggle" onclick="showgeo()">
+        Metadata Type
+    </button>
+    <button class="maptoggle" onclick="showtag()">
+        Climate Tag
+    </button>
+    <div class="container">
+        <div class="mapsection" id="agency">
+            <div class="information" style="padding:10px;height:95%">
+                <div class='chartstyle' id='chart'></div>
+            </div>
+        </div>
+        <div class="mapsection" id="theme">
+            <div class="information" style="padding:10px;height:95%">
+                <div class='chartstyle' id='chart2'></div>
+            </div>
+        </div>
+        <div class="mapsection" id="geo">
+            <div class="information" style="padding:10px;height:95%">
+                <div class='chartstyle' id='chart3'></div>
+            </div>
+        </div>
+        <div class="mapsection" id="tag">
+            <div class="information" style="padding:10px;height:95%">
+                <div class='chartstyle' id='chart4'></div>
+            </div>
+        </div>
+    </div>
+
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+
+    <script type='text/javascript'>
+        var graphs = {{ agency_graphJSON | safe}};
+        var graphs2 = {{ theme_graphJSON | safe}};
+        var graphs3 = {{ geospatial_graphJSON | safe}};
+        var graphs4 = {{ climate_graphJSON | safe}};
+        Plotly.plot('chart', graphs, {});
+        Plotly.plot('chart2', graphs2, {});
+        Plotly.plot('chart3', graphs3, {});
+        Plotly.plot('chart4', graphs4, {});
+    </script>
+
+</center>
+{% load static %}
+<script src="{%  static  'scripts/metric.js'  %}"></script>
+
+
+{% endblock %}

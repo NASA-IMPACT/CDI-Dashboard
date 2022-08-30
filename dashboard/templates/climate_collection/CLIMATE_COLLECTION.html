@@ -1,1 +1,43 @@
 {% extends "base.html" %}
+
+{% block content %}
+
+<body>
+
+	<center>
+		<br>
+		<div class="divshrink">
+			<div class="table-header">
+				<label class="pagetitle">Data.gov Climate Collection</label>
+				<a class="bluehyperfloatright" href="https://www.data.gov/climate/">Data.gov Climate Page</a>
+
+			</div>
+			<br>
+			<div class="tableFixHead">
+				<table class="masterlist-table">
+					<thead>
+						<tr>
+							<th class="column_1_title">Title</th>
+							<th>Catalog URL</th>
+							<th>API URL</th>
+							<th>Organization</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for item in climate_collection %}
+						<tr>
+							<td>
+								{{item.title}}</td>
+							<td class="column_1_entry" onclick="window.location ='{{ item.catalog_url }}';">{{ item.catalog_url }}</td>
+							<td class="column_1_entry" onclick="window.location ='{{ item.api_url }}';">{{ item.api_url }}</td>
+							<td>{{ item.organization }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</center>
+
+</body>
+{% endblock %}

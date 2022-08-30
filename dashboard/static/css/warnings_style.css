@@ -1,0 +1,15 @@
+/* Styling for the Warnings Page */
+
+caption {
+  font-weight: bold;
+  font-size: 30px;
+  color: black;
+  padding-bottom: 0.5%;
+  text-align: left;
+}
+
+.warnings_instance {
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+}

@@ -1,1 +1,49 @@
 {% extends "base.html" %}
+
+{% block title %}Retag Datasets{% endblock %}
+
+{% block content %}
+
+
+<body>
+
+	<center>
+		<br>
+		<div class="divshrink">
+			<div class="table-header">
+				<label class="pagetitle">Retag Datasets from {{ date }}</label>
+				<a class="bluehyperfloatright" href="/retag-request-download">Download Excel</a>
+
+			</div>
+			<br>
+			<div class="tableFixHead">
+				<table class="masterlist-table">
+					<thead>
+						<tr>
+							<th class="column_1_title">Title</th>
+							<th>Organization</th>
+							<th>CDI Themes</th>
+							<th>Metadata Type</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for item in retaglist %}
+						<tr>
+							<td class="column_1_entry" onclick="window.location ='{{ item.catalog_url }}';">
+								{{item.title}}</td>
+							<td>{{ item.organization }}</td>
+							<td>{{ item.cdi_themes }}</td>
+							<td>{{ item.metadata_type }}</td>
+							<td>{{ item.status }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</center>
+
+</body>
+
+{% endblock %}

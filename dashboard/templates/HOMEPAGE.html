@@ -1,4 +1,82 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+<center>
+	<div class="container">
+		<div class="section1">
+			<div class="information">
+				<h1>Climate Data Initiative (CDI)</h1>
+					<p>
+						The <a href="https://www.data.gov/climate/" class="info_hyper">Climate Collection</a> on Data.gov originated 
+						from the <a href="https://obamawhitehouse.archives.gov/the-press-office/2014/03/19/fact-sheet-president-s-climate-data-initiative-empowering-america-s-comm" class="info_hyper">Climate Data Initiative (CDI)<a>, which was an effort to make federal climate datasets more accessible.
+					</p>
+
+					<p>
+						The <a href="https://github.com/NASA-IMPACT/dcd-CAP" class="info_hyper">CDI Analysis Platform (CAP)</a> was developed to automate the analysis and maintenance of the data.gov Climate Collection through preserving the integrity of the originally curated 
+						<a href="https://github.com/NASA-IMPACT/cdi_master" class="info_hyper">CDI Masterlist</a>.
+					</p>
+
+			</div>
+		</div>
+		<div class="section2">
+			<div class="information">
+				
+				<table class="metrics">
+					<tr>
+						<td># in Climate Collection </td>
+						<td>{{ current_metrics.climate_collection_count }}</td>
+					</tr>
+
+					<tr></tr>
+				
+					<tr>
+						<td># in Masterlist </td>
+						<td>{{ current_metrics.masterlist_count }}</td>
+					</tr>
+				</table>
+					
+			</div>
+		</div>
+
+
+		<div class="section3">
+			<div class="information">
+				<div>
+					<table class="styled-table">
+						<caption>CDI Analysis Platform Warnings</caption>
+
+						<th>Date</th>
+						<th>Total Warnings</th>
+
+						{% for item in total_warnings %}
+						<tr>
+							<td><a href="/warnings/{{ item.cap_id }}">{{ item.date }}</a></td>
+							<td>{{ item.total_warnings }}</td>
+
+						</tr>
+						{% endfor %}
+					</table>
+				</div>
+
+			</div>
+		</div>
+		<div class="section4">
+			<div class="information">
+				<div class='chartstyle' id='chart'></div>
+			</div>
+		</div>
+		<div class="mobilespacer">&nbsp
+		</div>
+	</div>
+</center>
+
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+<script type='text/javascript'>
+	var graphs = {{ graphJSON | safe }};
+	Plotly.plot('chart', graphs);
+</script>
+
 {% endblock %}
+
+

@@ -43,12 +43,12 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cap',
-        'USER': 'postgres',
-        'PASSWORD': 'Pa55w0rd',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': env("ENGINE"),
+        'NAME': env("AWS_DB_NAME"),
+        'USER': env("AWS_DB_USER"),
+        'PASSWORD': env("AWS_DB_PASSWORD"),
+        'HOST': env("AWS_DB_HOST"),
+        'PORT': env("AWS_DB_PORT"),
     },
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
@@ -72,13 +72,14 @@ DJANGO_APPS = [
     # "django.contrib.humanize", # Handy template tags
     "django.contrib.admin",
     "django.forms",
+    "django_crontab",
+    "django_filters"
 ]
 THIRD_PARTY_APPS = [
     "crispy_forms",
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
-    "django_crontab"
 ]
 
 LOCAL_APPS = [
@@ -305,7 +306,7 @@ SOCIALACCOUNT_ADAPTER = "cap.users.adapters.SocialAccountAdapter"
 
 # CRONTABS
 CRONJOBS = [
-    #('* 9 * * *', 'dashboard.cap.run_cap')
+    ('0 9 * * *', 'dashboard.cap.run_cap')
 ]
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
